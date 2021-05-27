@@ -39,4 +39,21 @@ dependencies {
 
     //Circle ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    //Design Library for Coordinated layout and design tools
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //Card view
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //GeoFire
+    implementation 'com.firebase:geofire-android:2.3.1'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+
 }

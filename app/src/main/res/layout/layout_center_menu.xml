@@ -11,4 +11,26 @@
         android:layout_marginTop="55dp"
         android:scrollbars="vertical">
     </androidx.recyclerview.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/noResultsFoundLayout"
+        android:layout_gravity="center">
+        <TextView
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Không có môn thi nào!"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textSize="17dp"/>
+    </RelativeLayout>
 </merge>
