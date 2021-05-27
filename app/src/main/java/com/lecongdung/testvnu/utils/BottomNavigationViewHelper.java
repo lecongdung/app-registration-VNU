@@ -11,9 +11,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lecongdung.testvnu.R;
-import com.lecongdung.testvnu.account.AccountActivity;
-import com.lecongdung.testvnu.home.HomeActivity;
-import com.lecongdung.testvnu.my_test.MyTestActivity;
+import com.lecongdung.testvnu.view.AccountActivity;
+import com.lecongdung.testvnu.view.HomeActivity;
+import com.lecongdung.testvnu.view.MyTestActivity;
 
 
 public class BottomNavigationViewHelper {

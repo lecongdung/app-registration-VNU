@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.lecongdung.testvnu.home.HomeActivity;
+import com.lecongdung.testvnu.view.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.lecongdung.testvnu.notification;
+package com.lecongdung.testvnu.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

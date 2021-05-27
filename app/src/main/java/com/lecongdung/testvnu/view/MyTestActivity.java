@@ -1,4 +1,4 @@
-package com.lecongdung.testvnu.my_test;
+package com.lecongdung.testvnu.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
