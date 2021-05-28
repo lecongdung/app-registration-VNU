@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:id="@+id/relLayout1">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,19 +45,19 @@
                 android:layout_below="@id/displayUsername"
                 android:layout_centerHorizontal="true"
                 android:textSize="15dp"
-                android:text="" />
+                android:text="17020902@vnu.edu.vn" />
 
-            <Button
-                android:id="@+id/signoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="55dp"
-                android:layout_marginTop="23dp"
-                android:layout_toRightOf="@id/profile_image"
-                android:background="@android:color/transparent"
-                android:text="Đăng xuất"
-                android:textColor="@color/theme"
-                android:textSize="11sp" />
+<!--            <Button-->
+<!--                android:id="@+id/signoutButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="55dp"-->
+<!--                android:layout_marginTop="23dp"-->
+<!--                android:layout_toRightOf="@id/profile_image"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:text="Đăng xuất"-->
+<!--                android:textColor="@color/theme"-->
+<!--                android:textSize="13sp" />-->
 
             <TextView
                 android:id="@+id/rides_textview"
@@ -75,22 +76,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accountBackground"
             android:layout_below="@id/detailsView"
-            android:paddingTop="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/accountBackground"
             android:paddingLeft="30dp"
+            android:paddingTop="10dp"
             android:paddingRight="30dp">
 
             <TextView
                 android:id="@+id/accountSettingsHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/accountSettings"
-                android:fontFamily="@font/madeleina"
-                android:textStyle="bold"
-                android:textSize="15dp"
                 android:layout_marginTop="10dp"
-                android:text="CÀI ĐẶT TÀI KHOẢN " />
+                android:text="CÀI ĐẶT THÔNG TIN "
+                android:textColor="@color/accountSettings"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView1"
@@ -105,16 +106,17 @@
 
 
                     <LinearLayout
-                        android:layout_width="match_parent"
                         android:id="@+id/emailUpdateView"
+                        android:layout_width="match_parent"
                         android:layout_height="50dp">
 
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/icon_account_mail"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/icon_account_mail" />
+
                         <Button
                             android:id="@+id/updateEmailButton"
                             android:layout_width="210dp"
@@ -122,59 +124,63 @@
                             android:layout_marginLeft="20dp"
                             android:background="@android:color/transparent"
                             android:text="đổi địa chỉ email"
-                            android:textSize="12dp"
                             android:textAlignment="textStart"
-                            android:textColor="@color/darkgrey"/>
+                            android:textColor="@color/darkgrey"
+                            android:textSize="12dp" />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:background="@drawable/ic_chevron_right_black_24dp"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="15dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/ic_chevron_right_black_24dp" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_below="@id/emailUpdateView"
                         android:id="@+id/changePasswordUpdateView"
-                        android:layout_height="50dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/emailUpdateView">
 
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/icon_account_password"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/icon_account_password" />
+
                         <Button
+                            android:id="@+id/updatePasswordButton"
                             android:layout_width="210dp"
                             android:layout_height="50dp"
-                            android:id="@+id/updatePasswordButton"
                             android:layout_marginLeft="20dp"
                             android:background="@android:color/transparent"
                             android:text="Đổi mật khẩu"
-                            android:textSize="12dp"
                             android:textAlignment="textStart"
-                            android:textColor="@color/darkgrey"/>
+                            android:textColor="@color/darkgrey"
+                            android:textSize="12dp" />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:background="@drawable/ic_chevron_right_black_24dp"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="15dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/ic_chevron_right_black_24dp" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_width="match_parent"
                         android:id="@+id/detailsUpdateView"
-                        android:layout_below="@id/changePasswordUpdateView"
-                        android:layout_height="50dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/changePasswordUpdateView">
 
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/icon_account_details"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/icon_account_details" />
+
                         <Button
                             android:id="@+id/updateDetailsButton"
                             android:layout_width="210dp"
@@ -182,16 +188,16 @@
                             android:layout_marginLeft="20dp"
                             android:background="@android:color/transparent"
                             android:text="Cập nhật thông tin "
-                            android:textSize="12dp"
                             android:textAlignment="textStart"
-                            android:textColor="@color/darkgrey"/>
+                            android:textColor="@color/darkgrey"
+                            android:textSize="12dp" />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:background="@drawable/ic_chevron_right_black_24dp"
+                            android:layout_marginLeft="14dp"
                             android:layout_marginTop="15dp"
-                            android:layout_marginLeft="14dp"/>
+                            android:background="@drawable/ic_chevron_right_black_24dp" />
                     </LinearLayout>
 
 
@@ -202,53 +208,66 @@
                 android:id="@+id/paymentMethodsHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/accountSettings"
-                android:fontFamily="@font/madeleina"
-                android:textStyle="bold"
-                android:textSize="15dp"
                 android:layout_below="@id/cardView1"
                 android:layout_marginTop="20dp"
-                android:text="Xem thông tin" />
+                android:text="XEM THÔNG TIN"
+                android:textColor="@color/accountSettings"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
                 android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_below="@id/paymentMethodsHeader"
-                android:layout_height="50dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
                     android:id="@+id/paymentMethodUpdateView"
-                    android:layout_below="@id/changePasswordUpdateView"
-                    android:layout_height="50dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/changePasswordUpdateView">
 
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/icon_account_card"
+                        android:layout_marginLeft="14dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="14dp"/>
+                        android:background="@drawable/icon_account_card" />
+
                     <Button
+                        android:id="@+id/addPaymentInformationBtn"
                         android:layout_width="210dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="20dp"
                         android:background="@android:color/transparent"
                         android:text="Thông tin chi tiết"
-                        android:id="@+id/addPaymentInformationBtn"
-                        android:textSize="12dp"
                         android:textAlignment="textStart"
-                        android:textColor="@color/darkgrey"/>
+                        android:textColor="@color/darkgrey"
+                        android:textSize="12dp" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/ic_chevron_right_black_24dp"
+                        android:layout_marginLeft="14dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="14dp"/>
+                        android:background="@drawable/ic_chevron_right_black_24dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/btn_signout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/rect_blue"
+                android:text="ĐĂNG XUẤT" />
+
         </RelativeLayout>
     </RelativeLayout>
 
