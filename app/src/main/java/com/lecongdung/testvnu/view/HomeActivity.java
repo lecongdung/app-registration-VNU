@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -15,10 +14,10 @@ import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lecongdung.testvnu.R;
-import com.lecongdung.testvnu.view.NotificationActivity;
+import com.lecongdung.testvnu.adapter.OnItemTestListener;
 import com.lecongdung.testvnu.utils.BottomNavigationViewHelper;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity  implements OnItemTestListener {
     private static final int ACTIVITY_NUMBER = 0;
 
     private BottomNavigationView bottomNavigationView;
@@ -75,4 +74,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void OnItemTestClick(int pos) {
+
+    }
 }

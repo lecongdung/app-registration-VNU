@@ -1,7 +1,9 @@
 package com.lecongdung.testvnu.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +35,19 @@ public class SigninActivity extends AppCompatActivity {
 
     private void initOnClick() {
         btn_signup.setOnClickListener(v -> {
-            
+            AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
+            final View customLayout = getLayoutInflater().inflate(R.layout.dialog_input_otp,null);
+            builder.setView(customLayout);
+            builder.setTitle("Xác nhập email");
+            builder.setPositiveButton("Xác nhận", (dialog, which) -> {
+
+            });
+            builder.setNegativeButton("Hủy", (dialog, which) -> {
+                dialog.dismiss();
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
         });
     }
 
