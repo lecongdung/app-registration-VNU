@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lecongdung.testvnu.R;
@@ -21,13 +22,13 @@ public class MyTestActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
+    private TextView tv_title;
     private ImageView btn_notification;
     private ImageButton btn_search;
     private EditText edt_search_name;
     private AutoCompleteTextView edt_search_semester;
 
-    private String[] arr_semester= {"HK II 20-21","HK I 20-21","HK II 19-20","HK I 19-20","HK II 18-19","HK I 18-19"};
-
+    private String[] arr_semester = {"HK II 20-21", "HK I 20-21", "HK II 19-20", "HK I 19-20", "HK II 18-19", "HK I 18-19"};
 
 
     @Override
@@ -40,7 +41,7 @@ public class MyTestActivity extends AppCompatActivity {
         init();
     }
 
-    private void setupBottomNavigationView(){
+    private void setupBottomNavigationView() {
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.enableNavigation(this, bottomNavigationView);
 
@@ -51,12 +52,15 @@ public class MyTestActivity extends AppCompatActivity {
     }
 
     private void initWeight() {
+        tv_title = (TextView) this.findViewById(R.id.tv_title);
         btn_notification = (ImageView) this.findViewById(R.id.btn_notification);
         btn_search = (ImageButton) this.findViewById(R.id.btn_search);
         edt_search_name = (EditText) this.findViewById(R.id.edt_search_name);
         edt_search_semester = (AutoCompleteTextView) this.findViewById(R.id.edt_search_semester);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, arr_semester);
+        tv_title.setText("Môn thi của bạn");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, arr_semester);
         edt_search_semester.setThreshold(1);
         edt_search_semester.setAdapter(adapter);
     }

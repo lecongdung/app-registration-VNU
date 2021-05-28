@@ -33,6 +33,7 @@
                         app:civ_border_width="2dp" />
 
                     <TextView
+                        android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -80,10 +81,11 @@
                 android:id="@+id/edt_search_semester"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="4dp"
-                android:gravity="end"
-                android:layout_width="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="HK II 20-21"/>
+                android:hint="Học kỳ"/>
 
         </LinearLayout>
     </LinearLayout>

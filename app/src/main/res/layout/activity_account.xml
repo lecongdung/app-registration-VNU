@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:id="@+id/relativeLayout1">
         <include layout="@layout/snippet_top_detail_user"/>
-        <include layout="@layout/layout_bottom_navigation_view"/>
 
     </RelativeLayout>
 
@@ -21,7 +20,9 @@
         app:layout_anchor="@+id/relativeLayout1"
         app:layout_anchorGravity="center">
 
-        <include layout="@layout/layout_center_detail_user" />
+        <include layout="@layout/layout_center_accountsettings" />
+        <include layout="@layout/layout_bottom_navigation_view"/>
+
     </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
