@@ -24,7 +24,7 @@
                     android:id="@+id/tv_test_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mã môn thi: INT3401 2"
+                    android:text="INT3401 2"
                     android:textColor="@color/purple_700"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="Lập trình nâng cao"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_test_date"
