@@ -65,7 +65,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_kythi"
+                        android:id="@+id/tv_test_kythi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -87,7 +87,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_ma_ky_thi"
+                        android:id="@+id/tv_test_makythi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="KL 74"
@@ -119,7 +119,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_ngaythi"
+                        android:id="@+id/tv_test_ngaythi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -141,7 +141,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_ca_thi"
+                        android:id="@+id/tv_test_cathi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sáng"
@@ -173,7 +173,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_giothi"
+                        android:id="@+id/tv_test_giothi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -206,7 +206,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_diemthi"
+                        android:id="@+id/tv_test_diemthi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -240,7 +240,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_hinh_thuc"
+                        android:id="@+id/tv_test_hinhthuc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -262,7 +262,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_thoigian"
+                        android:id="@+id/tv_test_thoigian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="90p"
@@ -294,7 +294,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_lephi"
+                        android:id="@+id/tv_test_lephi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -327,7 +327,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_handk"
+                        android:id="@+id/tv_test_handk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -360,7 +360,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_trangthai"
+                        android:id="@+id/tv_test_trangthai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -388,8 +388,22 @@
             android:layout_marginBottom="12dp"
             android:textColor="@android:color/white"
             android:background="@drawable/btn_style" />
+        <TextView
+            android:id="@+id/btn_huydangky"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/rect_blue"
+            android:text="ĐĂNG XUẤT" />
 
         <TextView
+            android:id="@+id/btn_thoat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -397,8 +411,7 @@
             android:layout_marginBottom="10dp"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:text="Thoát"
-            android:id="@+id/btn_thoat"/>
+            android:text="Thoát" />
     </LinearLayout>
 
 </RelativeLayout>

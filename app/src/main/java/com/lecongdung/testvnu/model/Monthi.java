@@ -9,14 +9,15 @@ public class Monthi {
     private String tenmonthi;
     private String giothi;
     private String ngaythi;
+    private String cathi;
     private String diadiemthi;
     private int lephithi;
     private int thoigianlambai;
+    private String handangky;
     private int luachon;
 
     public Monthi() {
     }
-
 
     public int getId() {
         return id;
@@ -74,6 +75,14 @@ public class Monthi {
         this.ngaythi = ngaythi;
     }
 
+    public String getCathi() {
+        return cathi;
+    }
+
+    public void setCathi(String cathi) {
+        this.cathi = cathi;
+    }
+
     public String getDiadiemthi() {
         return diadiemthi;
     }
@@ -96,6 +105,14 @@ public class Monthi {
 
     public void setThoigianlambai(int thoigianlambai) {
         this.thoigianlambai = thoigianlambai;
+    }
+
+    public String getHandangky() {
+        return handangky;
+    }
+
+    public void setHandangky(String handangky) {
+        this.handangky = handangky;
     }
 
     public int getLuachon() {
