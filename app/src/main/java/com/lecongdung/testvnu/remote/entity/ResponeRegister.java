@@ -2,24 +2,25 @@ package com.lecongdung.testvnu.remote.entity;
 
 public class ResponeRegister {
 
-    private User user;
+    private User User;
     private String Token;
-
+    private String OTP;
 
     public ResponeRegister() {
     }
 
-    public ResponeRegister(User user, String token) {
-        this.user = user;
+    public ResponeRegister(com.lecongdung.testvnu.remote.entity.User user, String token, String OTP) {
+        User = user;
         Token = token;
+        this.OTP = OTP;
     }
 
-    public User getUser() {
-        return user;
+    public com.lecongdung.testvnu.remote.entity.User getUser() {
+        return User;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(com.lecongdung.testvnu.remote.entity.User user) {
+        User = user;
     }
 
     public String getToken() {
@@ -28,5 +29,13 @@ public class ResponeRegister {
 
     public void setToken(String token) {
         Token = token;
+    }
+
+    public String getOTP() {
+        return OTP;
+    }
+
+    public void setOTP(String OTP) {
+        this.OTP = OTP;
     }
 }

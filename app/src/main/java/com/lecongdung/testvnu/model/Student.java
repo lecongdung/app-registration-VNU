@@ -8,14 +8,14 @@ public class Student {
     private String Sodienthoai;
     private String Email;
     private String Trangthai;
-    private int verify;
+    private String verify;
     private String createdAt;
     private String updatedAt;
 
     public Student() {
     }
 
-    public Student(int id, String tendangnhap, String hoTen, String sodienthoai, String email, String trangthai, int verify, String createdAt, String updatedAt) {
+    public Student(int id, String tendangnhap, String hoTen, String sodienthoai, String email, String trangthai, String verify, String createdAt, String updatedAt) {
         this.id = id;
         this.tendangnhap = tendangnhap;
         HoTen = hoTen;
@@ -75,11 +75,11 @@ public class Student {
         Trangthai = trangthai;
     }
 
-    public int getVerify() {
+    public String getVerify() {
         return verify;
     }
 
-    public void setVerify(int verify) {
+    public void setVerify(String verify) {
         this.verify = verify;
     }
 

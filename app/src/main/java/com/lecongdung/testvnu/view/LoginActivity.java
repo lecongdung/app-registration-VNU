@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.lecongdung.testvnu.remote.DataService;
 import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodySendOTP;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateEmail;
+import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
 import com.lecongdung.testvnu.remote.entity.ResponeSendOTP;
 import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdate;
 
@@ -124,13 +126,21 @@ public class LoginActivity extends AppCompatActivity {
 
     public void startHomeActivity() {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
 
     public void showDialogOTP(String email) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         final View customLayout = getLayoutInflater().inflate(R.layout.dialog_input_otp, null);
+        ImageView btn_resend = (ImageView) customLayout.findViewById(R.id.btn_resend);
+        btn_resend.setOnClickListener(v -> {
+            sendOTP(email);
+            Toast.makeText(LoginActivity.this, "Đã gửi lại mã xác nhận", Toast.LENGTH_SHORT).show();
+        });
+
         builder.setView(customLayout);
         builder.setTitle("Mã xác nhận");
         builder.setPositiveButton("Xác nhận", (dialog, which) -> {
@@ -152,11 +162,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 
     public void showDialogNewPassword() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_MaterialComponents_DayNight_Dialog_Alert);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final View customLayout = getLayoutInflater().inflate(R.layout.dialog_input_newpassword, null);
         builder.setView(customLayout);
         builder.setTitle("Mật khẩu mới");
@@ -187,12 +198,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 
     public void changePassword(String newpassword) {
-        BodyStudentUpdateEmail bodyStudentUpdateEmail = new BodyStudentUpdateEmail(newpassword);
-        mService.StudentUpdateEmail(mStudent.getId(),bodyStudentUpdateEmail)
+        BodyStudentUpdatePassword bodyStudentUpdatePassword = new BodyStudentUpdatePassword(newpassword);
+        mService.StudentUpdatePassword(mStudent.getId(),bodyStudentUpdatePassword)
                 .enqueue(new Callback<ResponeStudentUpdate>() {
                     @Override
                     public void onResponse(Call<ResponeStudentUpdate> call, Response<ResponeStudentUpdate> response) {

@@ -15,4 +15,8 @@ import retrofit2.Response;
 public class Common {
     public static Student mStudent;
 
+    public static boolean isValidEmail(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
 }

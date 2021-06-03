@@ -4,8 +4,10 @@ import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
 import com.lecongdung.testvnu.remote.entity.BodySendOTP;
+import com.lecongdung.testvnu.remote.entity.BodyStudentDelete;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateEmail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
+import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateVerify;
 import com.lecongdung.testvnu.remote.entity.ResponeRegister;
 import com.lecongdung.testvnu.remote.entity.ResponeSendOTP;
 import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdate;
@@ -15,7 +17,9 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.PATCH;
@@ -48,9 +52,14 @@ public interface DataService {
     @PATCH("student-acc/{id}")
     Call<ResponeStudentUpdate> StudentUpdateEmail (@Path("id")int id, @Body BodyStudentUpdateEmail body);
 
-    @Multipart
     @PATCH("student-acc/{id}")
-    Call<ResponeStudentUpdate> StudentUpdate (@Path("id") int id, @Body ResponeStudentUpdate body);
+    Call<ResponeStudentUpdate> StudentUpdateVerify (@Path("id")int id, @Body BodyStudentUpdateVerify body);
 
+    @PATCH("student-acc/{id}")
+    Call<ResponeStudentUpdate> StudentUpdate (@Path("id") int id, @Body Student body);
+
+    @HTTP(method = "DELETE", path = "student-acc/delete", hasBody = true)
+//    @DELETE("student-acc/delete")
+    Call<Integer> StudentDelete (@Body BodyStudentDelete body);
     
 }
