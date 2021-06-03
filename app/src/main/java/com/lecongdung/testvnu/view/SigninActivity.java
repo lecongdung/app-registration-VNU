@@ -229,6 +229,7 @@ public class SigninActivity extends AppCompatActivity {
     public void startEditDetailActivity() {
         Intent intent = new Intent(SigninActivity.this, EditDetailStudentActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra("activity","SigninActivity");
         startActivity(intent);
         finish();
     }

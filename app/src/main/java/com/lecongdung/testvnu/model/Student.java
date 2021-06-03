@@ -1,8 +1,19 @@
 package com.lecongdung.testvnu.model;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.lecongdung.testvnu.view.LoginActivity;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Student {
 
-    private int id;
+    private int Id;
     private String tendangnhap;
     private String HoTen;
     private String Sodienthoai;
@@ -16,7 +27,7 @@ public class Student {
     }
 
     public Student(int id, String tendangnhap, String hoTen, String sodienthoai, String email, String trangthai, String verify, String createdAt, String updatedAt) {
-        this.id = id;
+        Id = id;
         this.tendangnhap = tendangnhap;
         HoTen = hoTen;
         Sodienthoai = sodienthoai;
@@ -28,11 +39,11 @@ public class Student {
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getTendangnhap() {

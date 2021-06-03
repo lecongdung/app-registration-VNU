@@ -16,16 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestVNU"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.EditDetailStudentActivity"></activity>
+        <activity android:name=".view.ViewDetailActivity"></activity>
+        <activity android:name=".view.EditDetailStudentActivity" />
         <activity
-            android:name=".view.MyTestActivity"
-            android:noHistory="true" />
+            android:name=".view.MyTestActivity" />
         <activity
-            android:name=".view.AccountActivity"
-            android:noHistory="true" />
+            android:name=".view.AccountActivity" />
         <activity
-            android:name=".view.NotificationActivity"
-            android:noHistory="true" />
+            android:name=".view.NotificationActivity" />
         <activity android:name=".view.HomeActivity" />
         <activity android:name=".view.SigninActivity" />
         <activity android:name=".view.LoginActivity" />

@@ -108,6 +108,7 @@
                     <LinearLayout
                         android:id="@+id/emailUpdateView"
                         android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="50dp">
 
                         <ImageView

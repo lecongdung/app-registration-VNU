@@ -63,7 +63,10 @@ public interface DataService {
     @HTTP(method = "DELETE", path = "student-acc/delete", hasBody = true)
     Call<Integer> StudentDelete (@Body BodyStudentDelete body);
 
+
     @PATCH("student-info/{id}")
     Call<ResponeStudentUpdateDetail> StudentUpdateDetail (@Path("id") int id, @Body BodyStudentUpdateDetail body);
-    
+
+    @GET("student-info/{id}")
+    Call<ResponeStudentUpdateDetail> StudentDetail (@Path("id") int id);
 }

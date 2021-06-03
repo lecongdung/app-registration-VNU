@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,7 +26,7 @@ public class BottomNavigationViewHelper {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
     }
 
-    public static void enableNavigation(final Context context, final BottomNavigationView view){
+    public static void enableNavigation(final AppCompatActivity context, final BottomNavigationView view){
 
         view.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()){
@@ -32,6 +34,7 @@ public class BottomNavigationViewHelper {
                     if (view.getSelectedItemId() != R.id.menu_home) {
                         Intent intentLocation = new Intent(context, HomeActivity.class); //ACTIVITY_NUMBER = 0
                         context.startActivity(intentLocation);
+                        context.finish();
                         break;
                     } else {
                         break;
@@ -40,6 +43,7 @@ public class BottomNavigationViewHelper {
                     if (view.getSelectedItemId() != R.id.menu_my_test) {
                         Intent intentRides = new Intent(context, MyTestActivity.class); //ACTIVITY_NUMBER = 2
                         context.startActivity(intentRides);
+                        context.finish();
                         break;
                     } else {
                         break;
@@ -48,6 +52,7 @@ public class BottomNavigationViewHelper {
                     if (view.getSelectedItemId() != R.id.menu_account) {
                         Intent intentAccount = new Intent(context, AccountActivity.class); //ACTIVITY_NUMBER = 4
                         context.startActivity(intentAccount);
+                        context.finish();
                         break;
                     } else {
                         break;

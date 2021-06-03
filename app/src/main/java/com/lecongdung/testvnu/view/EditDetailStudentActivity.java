@@ -36,6 +36,7 @@ public class EditDetailStudentActivity extends AppCompatActivity
     private RelativeLayout mRelativeLayout;
 
     private DataService mService;
+    private String flagPreActivity;
 
 
     private Context mContext;
@@ -49,11 +50,17 @@ public class EditDetailStudentActivity extends AppCompatActivity
         mRelativeLayout = (RelativeLayout) findViewById(R.id.removeableLayout);
         mService = DataClient.getDataClient();
 
+        getData();
+
         setupFragments();
 
         setViewPager(0);
 
 
+    }
+
+    private void getData() {
+        flagPreActivity = getIntent().getStringExtra("activity");
     }
 
 
@@ -84,7 +91,12 @@ public class EditDetailStudentActivity extends AppCompatActivity
                 mViewPager.setCurrentItem(currPos-1);
             case R.id.btn_done:
                 updateDetails();
-                startHomeActivity();
+                if(flagPreActivity.equals("SigninActivity")) {
+                    startHomeActivity();
+                }
+                else {
+                    finish();
+                }
                 break;
             default:
         }
