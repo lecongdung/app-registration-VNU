@@ -34,7 +34,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/backArrowPickupRide"
+                    android:id="@+id/btn_backarrow"
                     android:backgroundTint="@android:color/white"
                     android:background="@drawable/ic_arrow"/>
             </RelativeLayout>

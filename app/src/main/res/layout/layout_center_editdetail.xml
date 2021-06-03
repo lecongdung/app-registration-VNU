@@ -10,7 +10,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
             android:id="@+id/relLayout1">
 
 
@@ -18,46 +17,41 @@
             <!-- Full name layout -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:id="@+id/fullnameLayout">
-                <EditText
-                    android:layout_centerHorizontal="true"
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:inputType="textPersonName"
                     android:drawableLeft="@drawable/ic_baseline_person_24"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
-                    android:id="@+id/edt_hoten"
-                    android:hint="Họ và tên" />
+                    android:hint="Họ và tên"
+                    android:id="@+id/edt_hoten" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/fullnameLayout"
                 android:id="@+id/dobLayout">
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/ic_baseline_date_gray"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:focusable="false"
-                    android:background="@null"
-                    android:inputType="textNoSuggestions"
+                    android:background="@android:color/transparent"
+                    android:inputType="date"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
                     android:id="@+id/edt_ngaysinh"
@@ -68,21 +62,19 @@
             <!-- Mobile number layout -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/dobLayout"
                 android:id="@+id/usernameLayout">
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:inputType="number"
                     android:drawableLeft="@drawable/ic_baseline_phone_24"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
@@ -102,111 +94,103 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_location_gray"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginLeft="25dp">
                 </ImageView>
 
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="vertical">
-                   <!-- Mobile number layout -->
-                   <com.google.android.material.textfield.TextInputLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_below="@id/usernameLayout"
-                       android:id="@+id/workLayout">
-                       <EditText
-                           android:layout_centerHorizontal="true"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="15dp"
-                           android:layout_marginRight="15dp"
-                           android:layout_marginTop="10dp"
-                           android:background="@android:color/transparent"
-                           android:inputType="textPersonName"
-                           android:drawableTint="#838383"
-                           android:drawablePadding="10dp"
-                           android:padding="8dp"
-                           android:width="400dp"
-                           android:textSize="16sp"
-                           android:fontFamily="sans-serif"
-                           android:id="@+id/edt_duong"
-                           android:hint="Số nhà, đường" />
-                   </com.google.android.material.textfield.TextInputLayout>
-                   <com.google.android.material.textfield.TextInputLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_below="@id/workLayout">
-                       <EditText
-                           android:layout_centerHorizontal="true"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="15dp"
-                           android:layout_marginRight="15dp"
-                           android:layout_marginTop="10dp"
-                           android:background="@android:color/transparent"
-                           android:inputType="textPersonName"
-                           android:drawableTint="#838383"
-                           android:drawablePadding="10dp"
-                           android:padding="8dp"
-                           android:width="400dp"
-                           android:textSize="16sp"
-                           android:fontFamily="sans-serif"
-                           android:id="@+id/edt_phuong"
-                           android:hint="Phường, Quận , Xã" />
-                   </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Mobile number layout -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:id="@+id/workLayout">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPersonName"
+                            android:drawableTint="#838383"
+                            android:drawablePadding="10dp"
+                            android:width="400dp"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif"
+                            android:id="@+id/edt_duong"
+                            android:hint="Số nhà, đường" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_below="@id/workLayout">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPersonName"
+                            android:drawableTint="#838383"
+                            android:drawablePadding="10dp"
+                            android:width="400dp"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif"
+                            android:id="@+id/edt_phuong"
+                            android:hint="Phường, Quận , Xã" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                   <!-- Mobile number layout -->
-                   <com.google.android.material.textfield.TextInputLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_below="@id/workLayout"
-                       android:id="@+id/educationLayout">
-                       <EditText
-                           android:layout_centerHorizontal="true"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="15dp"
-                           android:layout_marginRight="15dp"
-                           android:layout_marginTop="10dp"
-                           android:background="@android:color/transparent"
-                           android:inputType="textPersonName"
-                           android:drawableTint="#838383"
-                           android:drawablePadding="10dp"
-                           android:padding="8dp"
-                           android:width="400dp"
-                           android:textSize="16sp"
-                           android:fontFamily="sans-serif"
-                           android:id="@+id/edt_thanhpho"
-                           android:hint="Huyện, Thành phố" />
-                   </com.google.android.material.textfield.TextInputLayout>
+                    <!-- Mobile number layout -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_below="@id/workLayout"
+                        android:id="@+id/educationLayout">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPersonName"
+                            android:drawableTint="#838383"
+                            android:drawablePadding="10dp"
+                            android:width="400dp"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif"
+                            android:id="@+id/edt_thanhpho"
+                            android:hint="Huyện, Thành phố" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                   <!-- Mobile number layout -->
-                   <com.google.android.material.textfield.TextInputLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_below="@id/educationLayout"
-                       android:id="@+id/bioLayout">
-                       <EditText
-                           android:layout_centerHorizontal="true"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginLeft="15dp"
-                           android:layout_marginRight="15dp"
-                           android:layout_marginTop="10dp"
-                           android:background="@android:color/transparent"
-                           android:inputType="textPersonName"
-                           android:drawableTint="#838383"
-                           android:drawablePadding="10dp"
-                           android:padding="8dp"
-                           android:width="400dp"
-                           android:textSize="16sp"
-                           android:fontFamily="sans-serif"
-                           android:id="@+id/edt_tinh"
-                           android:hint="Tỉnh" />
-                   </com.google.android.material.textfield.TextInputLayout>
-               </LinearLayout>
+                    <!-- Mobile number layout -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_below="@id/educationLayout"
+                        android:id="@+id/bioLayout">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPersonName"
+                            android:drawableTint="#838383"
+                            android:drawablePadding="10dp"
+                            android:width="400dp"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif"
+                            android:id="@+id/edt_tinh"
+                            android:hint="Tỉnh" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -217,7 +201,9 @@
                 android:checkedButton="@+id/offerButton"
                 android:id="@+id/genderToggle"
                 android:layout_width="match_parent"
-                android:layout_margin="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_height="30dp"
                 android:layout_below="@id/layoutaddress"
                 android:background="@drawable/green_out_line"
@@ -227,28 +213,28 @@
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
                     android:layout_marginLeft="1dp"
-                    android:id="@+id/femaleButton"
+                    android:id="@+id/maleButton"
                     android:background="@drawable/toggle_widget_green_background"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Female"
+                    android:text="Nam"
                     android:textColor="@color/darkgrey" />
 
                 <RadioButton
                     android:layout_marginRight="1dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:id="@+id/maleButton"
+                    android:id="@+id/femaleButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/toggle_widget_green_background"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Male"
+                    android:text="Nữ"
                     android:textColor="@color/darkgrey" />
             </RadioGroup>
 

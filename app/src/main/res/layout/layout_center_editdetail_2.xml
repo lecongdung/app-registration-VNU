@@ -10,7 +10,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
             android:id="@+id/relLayout1">
 
 
@@ -18,20 +17,18 @@
             <!-- Full name layout -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:id="@+id/fullnameLayout">
                 <EditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:inputType="number"
                     android:drawableLeft="@drawable/ic_baseline_credit_card_24"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
@@ -41,23 +38,20 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/fullnameLayout"
                 android:id="@+id/dobLayout">
                 <EditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/ic_baseline_people_24"
-                    android:drawablePadding="10dp"
-                    android:padding="8dp"
-                    android:width="400dp"
-                    android:focusable="false"
                     android:background="@android:color/transparent"
                     android:inputType="text"
+                    android:drawableLeft="@drawable/ic_baseline_people_24"
+                    android:drawablePadding="10dp"
+                    android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
                     android:id="@+id/edt_dantoc"
@@ -68,21 +62,19 @@
             <!-- Mobile number layout -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/dobLayout"
                 android:id="@+id/usernameLayout1">
                 <EditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:inputType="date"
                     android:drawableLeft="@drawable/ic_baseline_date_gray"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
@@ -91,21 +83,19 @@
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/usernameLayout1"
                 android:id="@+id/usernameLayout">
                 <EditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:drawableLeft="@drawable/ic_baseline_business_center_24"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
@@ -114,21 +104,19 @@
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/usernameLayout"
                 android:id="@+id/usernameLayout2">
                 <EditText
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:drawableLeft="@drawable/ic_baseline_location_gray"
                     android:drawablePadding="10dp"
-                    android:padding="8dp"
                     android:width="400dp"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"

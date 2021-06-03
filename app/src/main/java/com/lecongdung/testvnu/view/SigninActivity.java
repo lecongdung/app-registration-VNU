@@ -74,6 +74,9 @@ public class SigninActivity extends AppCompatActivity {
             if (checkInput(email, username, password, repassword)) {
                 createAccount(email, username, password);
             }
+            else {
+                card_view_loading.setVisibility(View.GONE);
+            }
         });
     }
 
@@ -203,6 +206,7 @@ public class SigninActivity extends AppCompatActivity {
                             student.setTendangnhap(edt_username.getText().toString().trim());
                             student.setEmail(user.getEmail());
                             student.setVerify("1");
+                            Common.mStudent = student;
                             startEditDetailActivity();
                         }
                         else {

@@ -5,12 +5,14 @@ import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
 import com.lecongdung.testvnu.remote.entity.BodySendOTP;
 import com.lecongdung.testvnu.remote.entity.BodyStudentDelete;
+import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateDetail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateEmail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateVerify;
 import com.lecongdung.testvnu.remote.entity.ResponeRegister;
 import com.lecongdung.testvnu.remote.entity.ResponeSendOTP;
 import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdate;
+import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdateDetail;
 
 
 import java.util.List;
@@ -59,7 +61,9 @@ public interface DataService {
     Call<ResponeStudentUpdate> StudentUpdate (@Path("id") int id, @Body Student body);
 
     @HTTP(method = "DELETE", path = "student-acc/delete", hasBody = true)
-//    @DELETE("student-acc/delete")
     Call<Integer> StudentDelete (@Body BodyStudentDelete body);
+
+    @PATCH("student-info/{id}")
+    Call<ResponeStudentUpdateDetail> StudentUpdateDetail (@Path("id") int id, @Body BodyStudentUpdateDetail body);
     
 }
