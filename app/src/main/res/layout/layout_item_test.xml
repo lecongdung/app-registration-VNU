@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cartview_test"
@@ -11,32 +14,33 @@
         app:cardElevation="5dp">
 
         <LinearLayout
+            android:id="@+id/layout_card_kythi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/tv_test_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã kỳ thi: "
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_makythi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="INT3401 2"
                     android:textColor="@color/purple_700"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_test_semester"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingLeft="10dp"
-                    android:text="HK II 20-21"
-                    android:textSize="16sp" />
-            </RelativeLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -45,22 +49,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_test_name"
+                    android:id="@+id/tv_tenkythi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lập trình nâng cao"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tv_test_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingLeft="10dp"
-                    android:text="6:00 21/5/2021"
-                    android:textSize="16sp"/>
+
             </RelativeLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</merge>
+</LinearLayout>

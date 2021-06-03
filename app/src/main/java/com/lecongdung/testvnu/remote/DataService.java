@@ -1,5 +1,7 @@
 package com.lecongdung.testvnu.remote;
 
+import com.lecongdung.testvnu.model.Kythi;
+import com.lecongdung.testvnu.model.Monthi;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
@@ -69,4 +71,15 @@ public interface DataService {
 
     @GET("student-info/{id}")
     Call<ResponeStudentUpdateDetail> StudentDetail (@Path("id") int id);
+
+    // Kỳ thi
+
+    @GET("kythi")
+    Call<List<Kythi>> GetAllKyThi ();
+
+    @GET("mon-cathi")
+    Call<List<Monthi>> GetAllMonThi ();
+
+    @GET("kythi-cathi")
+    Call<List<Monthi>> GetAllCaThi ();
 }

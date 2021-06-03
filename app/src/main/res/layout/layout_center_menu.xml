@@ -28,7 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Không có môn thi nào!"
+            android:text="Không có kỳ thi nào!"
             android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:textSize="17dp"/>

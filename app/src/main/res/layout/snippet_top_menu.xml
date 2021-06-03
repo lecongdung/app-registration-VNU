@@ -59,33 +59,21 @@
             android:id="@+id/layout_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:background="@drawable/border_layout_search">
+            android:layout_marginTop="8dp"
+            android:paddingBottom="5dp">
 
-            <ImageButton
-                android:id="@+id/btn_search"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="15dp"
-                android:backgroundTint="@color/blue"
-                android:src="@drawable/ic_baseline_search_white" />
-            <EditText
-                android:id="@+id/edt_search_name"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="4dp"
-                android:hint="Tên hoặc mã môn thi"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"/>
 
-            <AutoCompleteTextView
-                android:id="@+id/edt_search_semester"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="20dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Học kỳ"/>
+           <androidx.appcompat.widget.SearchView
+               android:id="@+id/search_kythi"
+               android:layout_marginLeft="16dp"
+               android:layout_marginRight="16dp"
+               android:layout_width="360dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/shapebgsearch"
+               app:iconifiedByDefault="false"
+               app:queryBackground="@null"
+               app:defaultQueryHint="Tìm kiếm kỳ thi"
+               app:queryHint="Tìm kiếm kỳ thi"/>
 
         </LinearLayout>
     </LinearLayout>

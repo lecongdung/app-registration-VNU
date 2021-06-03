@@ -1,6 +1,7 @@
 package com.lecongdung.testvnu.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,11 +27,8 @@ public class MyTestActivity extends AppCompatActivity {
 
     private TextView tv_title;
     private ImageView btn_notification;
-    private ImageButton btn_search;
-    private EditText edt_search_name;
-    private AutoCompleteTextView edt_search_semester;
+    private SearchView search_kythi;
 
-    private String[] arr_semester = {"HK II 20-21", "HK I 20-21", "HK II 19-20", "HK I 19-20", "HK II 18-19", "HK I 18-19"};
 
 
     @Override
@@ -56,15 +54,9 @@ public class MyTestActivity extends AppCompatActivity {
     private void initWeight() {
         tv_title = (TextView) this.findViewById(R.id.tv_title);
         btn_notification = (ImageView) this.findViewById(R.id.btn_notification);
-        btn_search = (ImageButton) this.findViewById(R.id.btn_search);
-        edt_search_name = (EditText) this.findViewById(R.id.edt_search_name);
-        edt_search_semester = (AutoCompleteTextView) this.findViewById(R.id.edt_search_semester);
 
         tv_title.setText("Môn thi của bạn");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, arr_semester);
-        edt_search_semester.setThreshold(1);
-        edt_search_semester.setAdapter(adapter);
     }
 
     private void init() {
@@ -72,12 +64,7 @@ public class MyTestActivity extends AppCompatActivity {
             Intent intent = new Intent(this, NotificationActivity.class);
             startActivity(intent);
         });
-        btn_search.setOnClickListener(v -> {
 
-        });
-        edt_search_semester.setOnClickListener(v -> {
-            edt_search_semester.showDropDown();
-        });
     }
 
     private void startHomeActivity() {

@@ -1,60 +1,80 @@
 package com.lecongdung.testvnu.model;
 
 public class Cathi {
-    private int id;
-    private String makythi;
-    private String cathi;
-    private String giothi;
-    private String ngaythi;
+    private int Id;
+    private String Makythi;
+    private int Cathi;
+    private String Giothi;
+    private String Ngaythi;
+    private String createdAt;
+    private String updatedAt;
 
     public Cathi() {
     }
 
-    public Cathi(int id, String makythi, String cathi, String giothi, String ngaythi) {
-        this.id = id;
-        this.makythi = makythi;
-        this.cathi = cathi;
-        this.giothi = giothi;
-        this.ngaythi = ngaythi;
+    public Cathi(int id, String makythi, int cathi, String giothi, String ngaythi, String createdAt, String updatedAt) {
+        Id = id;
+        Makythi = makythi;
+        Cathi = cathi;
+        Giothi = giothi;
+        Ngaythi = ngaythi;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getMakythi() {
-        return makythi;
+        return Makythi;
     }
 
     public void setMakythi(String makythi) {
-        this.makythi = makythi;
+        Makythi = makythi;
     }
 
-    public String getCathi() {
-        return cathi;
+    public int getCathi() {
+        return Cathi;
     }
 
-    public void setCathi(String cathi) {
-        this.cathi = cathi;
+    public void setCathi(int cathi) {
+        Cathi = cathi;
     }
 
     public String getGiothi() {
-        return giothi;
+        return Giothi;
     }
 
     public void setGiothi(String giothi) {
-        this.giothi = giothi;
+        Giothi = giothi;
     }
 
     public String getNgaythi() {
-        return ngaythi;
+        return Ngaythi;
     }
 
     public void setNgaythi(String ngaythi) {
-        this.ngaythi = ngaythi;
+        Ngaythi = ngaythi;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

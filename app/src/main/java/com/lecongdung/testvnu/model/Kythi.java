@@ -1,114 +1,120 @@
 package com.lecongdung.testvnu.model;
 
-public class Kythi {
-    private int id;
-    private String makythi;
-    private String tenkythi;
-    private String mota;
-    private String tungay;
-    private String toingay;
-    private int socathi;
-    private String handaky;
-    private int trangthai;
-    private int taocathi;
+import java.io.Serializable;
+
+public class Kythi implements Serializable {
+    private int Id;
+    private String MaKythi;
+    private String TenKythi;
+    private String Mota;
+    private String Tungay;
+    private String Toingay;
+    private int Socathi;
+    private String Handaky;
+    private int Trangthai;
+    private int Taocathi;
     private String anhkythi;
+    private String createdAt;
+    private String updatedAt;
 
 
     public Kythi() {
     }
 
-    public Kythi(int id, String makythi, String tenkythi, String mota, String tungay, String toingay, int socathi, String handaky, int trangthai, int taocathi, String anhkythi) {
-        this.id = id;
-        this.makythi = makythi;
-        this.tenkythi = tenkythi;
-        this.mota = mota;
-        this.tungay = tungay;
-        this.toingay = toingay;
-        this.socathi = socathi;
-        this.handaky = handaky;
-        this.trangthai = trangthai;
-        this.taocathi = taocathi;
+    public Kythi(int id, String maKythi, String tenKythi, String mota, String tungay, String toingay, int socathi, String handaky, int trangthai, int taocathi, String anhkythi, String createdAt, String updatedAt) {
+        Id = id;
+        MaKythi = maKythi;
+        TenKythi = tenKythi;
+        Mota = mota;
+        Tungay = tungay;
+        Toingay = toingay;
+        Socathi = socathi;
+        Handaky = handaky;
+        Trangthai = trangthai;
+        Taocathi = taocathi;
         this.anhkythi = anhkythi;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
-    public String getMakythi() {
-        return makythi;
+    public String getMaKythi() {
+        return MaKythi;
     }
 
-    public void setMakythi(String makythi) {
-        this.makythi = makythi;
+    public void setMaKythi(String maKythi) {
+        MaKythi = maKythi;
     }
 
-    public String getTenkythi() {
-        return tenkythi;
+    public String getTenKythi() {
+        return TenKythi;
     }
 
-    public void setTenkythi(String tenkythi) {
-        this.tenkythi = tenkythi;
+    public void setTenKythi(String tenKythi) {
+        TenKythi = tenKythi;
     }
 
     public String getMota() {
-        return mota;
+        return Mota;
     }
 
     public void setMota(String mota) {
-        this.mota = mota;
+        Mota = mota;
     }
 
     public String getTungay() {
-        return tungay;
+        return Tungay;
     }
 
     public void setTungay(String tungay) {
-        this.tungay = tungay;
+        Tungay = tungay;
     }
 
     public String getToingay() {
-        return toingay;
+        return Toingay;
     }
 
     public void setToingay(String toingay) {
-        this.toingay = toingay;
+        Toingay = toingay;
     }
 
     public int getSocathi() {
-        return socathi;
+        return Socathi;
     }
 
     public void setSocathi(int socathi) {
-        this.socathi = socathi;
+        Socathi = socathi;
     }
 
     public String getHandaky() {
-        return handaky;
+        return Handaky;
     }
 
     public void setHandaky(String handaky) {
-        this.handaky = handaky;
+        Handaky = handaky;
     }
 
     public int getTrangthai() {
-        return trangthai;
+        return Trangthai;
     }
 
     public void setTrangthai(int trangthai) {
-        this.trangthai = trangthai;
+        Trangthai = trangthai;
     }
 
     public int getTaocathi() {
-        return taocathi;
+        return Taocathi;
     }
 
     public void setTaocathi(int taocathi) {
-        this.taocathi = taocathi;
+        Taocathi = taocathi;
     }
 
     public String getAnhkythi() {
@@ -117,5 +123,21 @@ public class Kythi {
 
     public void setAnhkythi(String anhkythi) {
         this.anhkythi = anhkythi;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

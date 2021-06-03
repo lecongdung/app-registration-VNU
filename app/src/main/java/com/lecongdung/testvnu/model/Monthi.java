@@ -1,125 +1,90 @@
 package com.lecongdung.testvnu.model;
 
-
 public class Monthi {
-    private int id;
-    private String makythi;
-    private String tenkythi;
-    private String mamonthi;
-    private String tenmonthi;
-    private String giothi;
-    private String ngaythi;
-    private String cathi;
-    private String diadiemthi;
-    private int lephithi;
-    private int thoigianlambai;
-    private String handangky;
-    private int luachon;
+    private int Id;
+    private String Makythi;
+    private String Madiemthi;
+    private String Mamonthi;
+    private int Cathi;
+    private int checked;
+    private String createdAt;
+    private String updatedAt;
 
     public Monthi() {
     }
 
+    public Monthi(int id, String makythi, String madiemthi, String mamonthi, int cathi, int checked, String createdAt, String updatedAt) {
+        Id = id;
+        Makythi = makythi;
+        Madiemthi = madiemthi;
+        Mamonthi = mamonthi;
+        Cathi = cathi;
+        this.checked = checked;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getMakythi() {
-        return makythi;
+        return Makythi;
     }
 
     public void setMakythi(String makythi) {
-        this.makythi = makythi;
+        Makythi = makythi;
     }
 
-    public String getTenkythi() {
-        return tenkythi;
+    public String getMadiemthi() {
+        return Madiemthi;
     }
 
-    public void setTenkythi(String tenkythi) {
-        this.tenkythi = tenkythi;
+    public void setMadiemthi(String madiemthi) {
+        Madiemthi = madiemthi;
     }
 
     public String getMamonthi() {
-        return mamonthi;
+        return Mamonthi;
     }
 
     public void setMamonthi(String mamonthi) {
-        this.mamonthi = mamonthi;
+        Mamonthi = mamonthi;
     }
 
-    public String getTenmonthi() {
-        return tenmonthi;
+    public int getCathi() {
+        return Cathi;
     }
 
-    public void setTenmonthi(String tenmonthi) {
-        this.tenmonthi = tenmonthi;
+    public void setCathi(int cathi) {
+        Cathi = cathi;
     }
 
-    public String getGiothi() {
-        return giothi;
+    public int getChecked() {
+        return checked;
     }
 
-    public void setGiothi(String giothi) {
-        this.giothi = giothi;
+    public void setChecked(int checked) {
+        this.checked = checked;
     }
 
-    public String getNgaythi() {
-        return ngaythi;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setNgaythi(String ngaythi) {
-        this.ngaythi = ngaythi;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getCathi() {
-        return cathi;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCathi(String cathi) {
-        this.cathi = cathi;
-    }
-
-    public String getDiadiemthi() {
-        return diadiemthi;
-    }
-
-    public void setDiadiemthi(String diadiemthi) {
-        this.diadiemthi = diadiemthi;
-    }
-
-    public int getLephithi() {
-        return lephithi;
-    }
-
-    public void setLephithi(int lephithi) {
-        this.lephithi = lephithi;
-    }
-
-    public int getThoigianlambai() {
-        return thoigianlambai;
-    }
-
-    public void setThoigianlambai(int thoigianlambai) {
-        this.thoigianlambai = thoigianlambai;
-    }
-
-    public String getHandangky() {
-        return handangky;
-    }
-
-    public void setHandangky(String handangky) {
-        this.handangky = handangky;
-    }
-
-    public int getLuachon() {
-        return luachon;
-    }
-
-    public void setLuachon(int luachon) {
-        this.luachon = luachon;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
