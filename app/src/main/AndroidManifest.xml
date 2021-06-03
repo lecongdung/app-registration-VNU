@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestVNU"
         android:usesCleartextTraffic="true">
+        <activity android:name=".view.EditDetailStudentActivity"></activity>
         <activity
             android:name=".view.MyTestActivity"
             android:noHistory="true" />

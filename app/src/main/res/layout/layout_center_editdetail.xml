@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:id="@+id/relLayout1">
+
+
+
+            <!-- Full name layout -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fullnameLayout">
+                <EditText
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPersonName"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="10dp"
+                    android:padding="8dp"
+                    android:width="400dp"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/edt_hoten"
+                    android:hint="Họ và tên" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fullnameLayout"
+                android:id="@+id/dobLayout">
+                <EditText
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/ic_baseline_date_gray"
+                    android:drawablePadding="10dp"
+                    android:padding="8dp"
+                    android:width="400dp"
+                    android:focusable="false"
+                    android:background="@null"
+                    android:inputType="textNoSuggestions"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/edt_ngaysinh"
+                    android:hint="Ngày sinh" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- Mobile number layout -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dobLayout"
+                android:id="@+id/usernameLayout">
+                <EditText
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="number"
+                    android:drawableLeft="@drawable/ic_baseline_phone_24"
+                    android:drawablePadding="10dp"
+                    android:padding="8dp"
+                    android:width="400dp"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/edt_phone"
+                    android:hint="Số điện thoại" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usernameLayout"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_location_gray"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="25dp">
+                </ImageView>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <!-- Mobile number layout -->
+                   <com.google.android.material.textfield.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/usernameLayout"
+                       android:id="@+id/workLayout">
+                       <EditText
+                           android:layout_centerHorizontal="true"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="15dp"
+                           android:layout_marginRight="15dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@android:color/transparent"
+                           android:inputType="textPersonName"
+                           android:drawableTint="#838383"
+                           android:drawablePadding="10dp"
+                           android:padding="8dp"
+                           android:width="400dp"
+                           android:textSize="16sp"
+                           android:fontFamily="sans-serif"
+                           android:id="@+id/edt_duong"
+                           android:hint="Số nhà, đường" />
+                   </com.google.android.material.textfield.TextInputLayout>
+                   <com.google.android.material.textfield.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/workLayout">
+                       <EditText
+                           android:layout_centerHorizontal="true"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="15dp"
+                           android:layout_marginRight="15dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@android:color/transparent"
+                           android:inputType="textPersonName"
+                           android:drawableTint="#838383"
+                           android:drawablePadding="10dp"
+                           android:padding="8dp"
+                           android:width="400dp"
+                           android:textSize="16sp"
+                           android:fontFamily="sans-serif"
+                           android:id="@+id/edt_phuong"
+                           android:hint="Phường, Quận , Xã" />
+                   </com.google.android.material.textfield.TextInputLayout>
+
+                   <!-- Mobile number layout -->
+                   <com.google.android.material.textfield.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/workLayout"
+                       android:id="@+id/educationLayout">
+                       <EditText
+                           android:layout_centerHorizontal="true"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="15dp"
+                           android:layout_marginRight="15dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@android:color/transparent"
+                           android:inputType="textPersonName"
+                           android:drawableTint="#838383"
+                           android:drawablePadding="10dp"
+                           android:padding="8dp"
+                           android:width="400dp"
+                           android:textSize="16sp"
+                           android:fontFamily="sans-serif"
+                           android:id="@+id/edt_thanhpho"
+                           android:hint="Huyện, Thành phố" />
+                   </com.google.android.material.textfield.TextInputLayout>
+
+                   <!-- Mobile number layout -->
+                   <com.google.android.material.textfield.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/educationLayout"
+                       android:id="@+id/bioLayout">
+                       <EditText
+                           android:layout_centerHorizontal="true"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="15dp"
+                           android:layout_marginRight="15dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@android:color/transparent"
+                           android:inputType="textPersonName"
+                           android:drawableTint="#838383"
+                           android:drawablePadding="10dp"
+                           android:padding="8dp"
+                           android:width="400dp"
+                           android:textSize="16sp"
+                           android:fontFamily="sans-serif"
+                           android:id="@+id/edt_tinh"
+                           android:hint="Tỉnh" />
+                   </com.google.android.material.textfield.TextInputLayout>
+               </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <!-- Gender layout -->
+            <RadioGroup
+                android:checkedButton="@+id/offerButton"
+                android:id="@+id/genderToggle"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/layoutaddress"
+                android:background="@drawable/green_out_line"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:id="@+id/femaleButton"
+                    android:background="@drawable/toggle_widget_green_background"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Female"
+                    android:textColor="@color/darkgrey" />
+
+                <RadioButton
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/maleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_green_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Male"
+                    android:textColor="@color/darkgrey" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28.7dp"
+                android:layout_marginTop="28.8dp"
+                android:layout_marginRight="28.9dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="23.5dp"
+                android:background="@drawable/rect_blue2"
+                android:textColor="#fbfbfb"
+                android:text="Tiếp theo"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</merge>

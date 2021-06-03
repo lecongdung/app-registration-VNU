@@ -203,7 +203,7 @@ public class SigninActivity extends AppCompatActivity {
                             student.setTendangnhap(edt_username.getText().toString().trim());
                             student.setEmail(user.getEmail());
                             student.setVerify("1");
-                            startHomeActivity();
+                            startEditDetailActivity();
                         }
                         else {
                             try {
@@ -222,8 +222,8 @@ public class SigninActivity extends AppCompatActivity {
     }
 
 
-    public void startHomeActivity() {
-        Intent intent = new Intent(SigninActivity.this, HomeActivity.class);
+    public void startEditDetailActivity() {
+        Intent intent = new Intent(SigninActivity.this, EditDetailStudentActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
