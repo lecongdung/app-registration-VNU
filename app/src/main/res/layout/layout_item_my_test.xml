@@ -59,6 +59,16 @@
 
 
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_trangthai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:text="Đã thanh toán"
+                android:textColor="@color/green"
+                android:textStyle="italic"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

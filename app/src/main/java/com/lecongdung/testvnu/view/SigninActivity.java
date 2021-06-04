@@ -19,6 +19,7 @@ import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
+import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
 import com.lecongdung.testvnu.remote.entity.BodyStudentDelete;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
@@ -201,13 +202,7 @@ public class SigninActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ResponeStudentUpdate> call, Response<ResponeStudentUpdate> response) {
                         if (response.isSuccessful()) {
-                            Student student = new Student();
-                            student.setId(user.getId());
-                            student.setTendangnhap(edt_username.getText().toString().trim());
-                            student.setEmail(user.getEmail());
-                            student.setVerify("1");
-                            Common.mStudent = student;
-                            startEditDetailActivity();
+                            loginAccount();
                         }
                         else {
                             try {
@@ -221,6 +216,25 @@ public class SigninActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ResponeStudentUpdate> call, Throwable t) {
                         Log.e("Lỗi update verify", t.getMessage());
+                    }
+                });
+    }
+
+    private void loginAccount() {
+        BodyLogin bodyLogin = new BodyLogin(edt_username.getText().toString().trim(),edt_password.getText().toString());
+        mService.Login(bodyLogin)
+                .enqueue(new Callback<Student>() {
+                    @Override
+                    public void onResponse(Call<Student> call, Response<Student> response) {
+                        if (response.isSuccessful()) {
+                            Common.mStudent = response.body();
+                            startEditDetailActivity();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Student> call, Throwable t) {
+
                     }
                 });
     }

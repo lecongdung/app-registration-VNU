@@ -56,7 +56,50 @@ public class EditDetailStudentActivity extends AppCompatActivity
 
         setViewPager(0);
 
+        setContent();
 
+
+    }
+
+    private void setContent() {
+        if(!flagPreActivity.equals("SigninActivity")) {
+            mService.StudentDetail(Common.mStudent.getId())
+                    .enqueue(new Callback<ResponeStudentUpdateDetail>() {
+                        @Override
+                        public void onResponse(Call<ResponeStudentUpdateDetail> call, Response<ResponeStudentUpdateDetail> response) {
+                            if(response.isSuccessful()) {
+                                ResponeStudentUpdateDetail result = response.body();
+                                editDetailsOneFragment.edt_hoten.setText(result.getHoten());
+                                editDetailsOneFragment.edt_phone.setText(result.getSodienthoai());
+                                editDetailsOneFragment.edt_ngaysinh.setText(result.getNgaysinh());
+                                if(result.equals("0")) {
+                                    editDetailsOneFragment.maleRadioButton.setChecked(true);
+                                }else {
+                                    editDetailsOneFragment.femaleRadioButton.setChecked(true);
+                                }
+                                String diachi = result.getNoisinh();
+                                String [] dc = diachi.split(", ");
+                                editDetailsOneFragment.edt_duong.setText(dc[0]);
+                                editDetailsOneFragment.edt_phuong.setText(dc[1]);
+                                editDetailsOneFragment.edt_thanhpho.setText(dc[2]);
+                                editDetailsOneFragment.edt_tinh.setText(dc[3]);
+
+                                editDetailsTwoFragment.edt_dantoc.setText(result.getDantoc());
+                                editDetailsTwoFragment.edt_cmt.setText(result.getSoCMND());
+                                editDetailsTwoFragment.edt_ngaycap.setText(result.getNgaycap());
+                                editDetailsTwoFragment.edt_noicap.setText(result.getNoicap());
+                                editDetailsTwoFragment.edt_khuvuc.setText(result.getKhuvuc());
+                            } else {
+                                Toast.makeText(EditDetailStudentActivity.this,"Lỗi hiện thị thông tin",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponeStudentUpdateDetail> call, Throwable t) {
+
+                        }
+                    });
+        }
     }
 
     private void getData() {
@@ -89,6 +132,7 @@ public class EditDetailStudentActivity extends AppCompatActivity
                 break;
             case R.id.btn_backarrow:
                 mViewPager.setCurrentItem(currPos-1);
+                break;
             case R.id.btn_done:
                 updateDetails();
                 if(flagPreActivity.equals("SigninActivity")) {

@@ -30,8 +30,8 @@ public class EditDetailsOneFragment extends Fragment {
     }
 
     public EditText edt_hoten, edt_ngaysinh, edt_phone, edt_duong, edt_phuong, edt_thanhpho, edt_tinh;
-    private RadioGroup mGenderGroup;
-    private RadioButton maleRadioButton, femaleRadioButton;
+    public RadioGroup mGenderGroup;
+    public RadioButton maleRadioButton, femaleRadioButton;
     private Button btn_next;
 
     private OnButtonClickListener mOnButtonClickListener;

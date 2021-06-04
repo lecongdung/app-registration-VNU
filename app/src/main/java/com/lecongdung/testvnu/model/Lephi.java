@@ -1,120 +1,160 @@
 package com.lecongdung.testvnu.model;
 
 public class Lephi {
-    private int id;
-    private String tendangnhap;
-    private String makythi;
-    private String diemthi;
-    private String lephidangky;
-    private String lephidanop;
-    private String nguoithu;
-    private String ngaythu;
-    private int status;
-    private String ngaydangky;
-    private String codedangky;
+    private int Id;
+    private String username;
+    private String Makythi;
+    private String Diemthi;
+    private String Lephidangky;
+    private String Lephidanop;
+    private String Lephichuyen;
+    private String Nguoithu;
+    private String Ngaythu;
+    private String status;
+    private String Ngaydangky;
+    private String Codedangky;
+    private String bill4gateway;
+    private String createdAt;
+    private String updatedAt;
 
     public Lephi() {
     }
 
-    public Lephi(int id, String tendangnhap, String makythi, String diemthi, String lephidangky, String lephidanop, String nguoithu, String ngaythu, int status, String ngaydangky, String codedangky) {
-        this.id = id;
-        this.tendangnhap = tendangnhap;
-        this.makythi = makythi;
-        this.diemthi = diemthi;
-        this.lephidangky = lephidangky;
-        this.lephidanop = lephidanop;
-        this.nguoithu = nguoithu;
-        this.ngaythu = ngaythu;
+    public Lephi(int id, String username, String makythi, String diemthi, String lephidangky, String lephidanop, String lephichuyen, String nguoithu, String ngaythu, String status, String ngaydangky, String codedangky, String bill4gateway, String createdAt, String updatedAt) {
+        Id = id;
+        this.username = username;
+        Makythi = makythi;
+        Diemthi = diemthi;
+        Lephidangky = lephidangky;
+        Lephidanop = lephidanop;
+        Lephichuyen = lephichuyen;
+        Nguoithu = nguoithu;
+        Ngaythu = ngaythu;
         this.status = status;
-        this.ngaydangky = ngaydangky;
-        this.codedangky = codedangky;
+        Ngaydangky = ngaydangky;
+        Codedangky = codedangky;
+        this.bill4gateway = bill4gateway;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
-    public String getTendangnhap() {
-        return tendangnhap;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTendangnhap(String tendangnhap) {
-        this.tendangnhap = tendangnhap;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getMakythi() {
-        return makythi;
+        return Makythi;
     }
 
     public void setMakythi(String makythi) {
-        this.makythi = makythi;
+        Makythi = makythi;
     }
 
     public String getDiemthi() {
-        return diemthi;
+        return Diemthi;
     }
 
     public void setDiemthi(String diemthi) {
-        this.diemthi = diemthi;
+        Diemthi = diemthi;
     }
 
     public String getLephidangky() {
-        return lephidangky;
+        return Lephidangky;
     }
 
     public void setLephidangky(String lephidangky) {
-        this.lephidangky = lephidangky;
+        Lephidangky = lephidangky;
     }
 
     public String getLephidanop() {
-        return lephidanop;
+        return Lephidanop;
     }
 
     public void setLephidanop(String lephidanop) {
-        this.lephidanop = lephidanop;
+        Lephidanop = lephidanop;
+    }
+
+    public String getLephichuyen() {
+        return Lephichuyen;
+    }
+
+    public void setLephichuyen(String lephichuyen) {
+        Lephichuyen = lephichuyen;
     }
 
     public String getNguoithu() {
-        return nguoithu;
+        return Nguoithu;
     }
 
     public void setNguoithu(String nguoithu) {
-        this.nguoithu = nguoithu;
+        Nguoithu = nguoithu;
     }
 
     public String getNgaythu() {
-        return ngaythu;
+        return Ngaythu;
     }
 
     public void setNgaythu(String ngaythu) {
-        this.ngaythu = ngaythu;
+        Ngaythu = ngaythu;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     public String getNgaydangky() {
-        return ngaydangky;
+        return Ngaydangky;
     }
 
     public void setNgaydangky(String ngaydangky) {
-        this.ngaydangky = ngaydangky;
+        Ngaydangky = ngaydangky;
     }
 
     public String getCodedangky() {
-        return codedangky;
+        return Codedangky;
     }
 
     public void setCodedangky(String codedangky) {
-        this.codedangky = codedangky;
+        Codedangky = codedangky;
+    }
+
+    public String getBill4gateway() {
+        return bill4gateway;
+    }
+
+    public void setBill4gateway(String bill4gateway) {
+        this.bill4gateway = bill4gateway;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

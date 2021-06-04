@@ -1,8 +1,10 @@
 package com.lecongdung.testvnu.remote;
 
 import com.lecongdung.testvnu.model.Kythi;
+import com.lecongdung.testvnu.model.Lephi;
 import com.lecongdung.testvnu.model.Monthi;
 import com.lecongdung.testvnu.model.Student;
+import com.lecongdung.testvnu.remote.entity.BodyLePhiUpdate;
 import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
 import com.lecongdung.testvnu.remote.entity.BodySendOTP;
@@ -82,4 +84,10 @@ public interface DataService {
 
     @GET("kythi-cathi")
     Call<List<Monthi>> GetAllCaThi ();
+
+    @GET("dangkythi-lephi/{id}")
+    Call<Lephi> GetDangKyLePhi (@Path("id")int id);
+
+    @PATCH("student-cathi/{id}")
+    Call<Lephi> UpdateLePhi (@Path("id") int id, @Body BodyLePhiUpdate body);
 }
