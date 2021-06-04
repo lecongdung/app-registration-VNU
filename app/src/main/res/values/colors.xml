@@ -44,4 +44,6 @@
     <color name="light_black">#595959</color>
     <color name="toolbar">#40CF7F</color>
     <color name="red">#fc0000</color>
+    <color name="backgroudRV">#ecf0f1</color>
+
 </resources>

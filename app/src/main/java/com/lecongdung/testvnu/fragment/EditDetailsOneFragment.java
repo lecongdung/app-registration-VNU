@@ -95,7 +95,7 @@ public class EditDetailsOneFragment extends Fragment {
             else if(!femaleRadioButton.isChecked() && !maleRadioButton.isChecked())
                 Toast.makeText(getContext(),"Vui lòng chọn giới tính",Toast.LENGTH_SHORT).show();
             else
-                mOnButtonClickListener.onButtonClicked(v);
+                    mOnButtonClickListener.onButtonClicked(v);
         });
 
         edt_ngaysinh.setOnClickListener(new View.OnClickListener() {

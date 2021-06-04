@@ -2,16 +2,15 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cartview_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightWhite"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="5dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:id="@+id/layout_card_kythi"
@@ -24,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -31,9 +31,10 @@
                     android:textColor="@color/purple_700"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tv_makythi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="INT3401 2"
                     android:textColor="@color/purple_700"
@@ -50,7 +51,7 @@
 
                 <TextView
                     android:id="@+id/tv_tenkythi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lập trình nâng cao"
                     android:textSize="16sp"

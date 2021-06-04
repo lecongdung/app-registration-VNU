@@ -10,7 +10,7 @@ public class Kythi implements Serializable {
     private String Tungay;
     private String Toingay;
     private int Socathi;
-    private String Handaky;
+    private String Handangky;
     private int Trangthai;
     private int Taocathi;
     private String anhkythi;
@@ -21,7 +21,7 @@ public class Kythi implements Serializable {
     public Kythi() {
     }
 
-    public Kythi(int id, String maKythi, String tenKythi, String mota, String tungay, String toingay, int socathi, String handaky, int trangthai, int taocathi, String anhkythi, String createdAt, String updatedAt) {
+    public Kythi(int id, String maKythi, String tenKythi, String mota, String tungay, String toingay, int socathi, String handangky, int trangthai, int taocathi, String anhkythi, String createdAt, String updatedAt) {
         Id = id;
         MaKythi = maKythi;
         TenKythi = tenKythi;
@@ -29,7 +29,7 @@ public class Kythi implements Serializable {
         Tungay = tungay;
         Toingay = toingay;
         Socathi = socathi;
-        Handaky = handaky;
+        Handangky = handangky;
         Trangthai = trangthai;
         Taocathi = taocathi;
         this.anhkythi = anhkythi;
@@ -93,12 +93,12 @@ public class Kythi implements Serializable {
         Socathi = socathi;
     }
 
-    public String getHandaky() {
-        return Handaky;
+    public String getHandangky() {
+        return Handangky;
     }
 
-    public void setHandaky(String handaky) {
-        Handaky = handaky;
+    public void setHandangky(String handangky) {
+        Handangky = handangky;
     }
 
     public int getTrangthai() {

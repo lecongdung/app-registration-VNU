@@ -11,7 +11,6 @@
 
         <include layout="@layout/snippet_top_menu" />
 
-        <include layout="@layout/layout_bottom_navigation_view" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout2"
@@ -19,6 +18,7 @@
             android:layout_height="match_parent">
 
             <include layout="@layout/layout_center_menu" />
+            <include layout="@layout/layout_bottom_navigation_view" />
         </RelativeLayout>
 
     </RelativeLayout>

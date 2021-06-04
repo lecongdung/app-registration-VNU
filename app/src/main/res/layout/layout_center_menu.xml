@@ -4,33 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
-        android:scrollbars="vertical">
-    </androidx.recyclerview.widget.RecyclerView>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="110dp"
+            android:background="@color/backgroudRV"
+            android:scrollbars="vertical"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/noResultsFoundLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Không có kỳ thi nào!"
+                    android:textAlignment="center"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/noResultsFoundLayout"
-        android:layout_gravity="center">
-        <TextView
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Không có kỳ thi nào!"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            android:textSize="17dp"/>
-    </RelativeLayout>
 </merge>
