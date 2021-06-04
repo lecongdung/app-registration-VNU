@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.lecongdung.testvnu.R;
+import com.lecongdung.testvnu.dialog.AlertDialog;
+import com.lecongdung.testvnu.dialog.SuccessDialog;
 import com.lecongdung.testvnu.fragment.EditDetailsOneFragment;
 import com.lecongdung.testvnu.fragment.EditDetailsTwoFragment;
 import com.lecongdung.testvnu.fragment.KythiOneFragment;
@@ -83,11 +87,15 @@ public class KythiActivity extends AppCompatActivity
                 finish();
                 break;
             case R.id.btn_dangky:
-                Intent intent = new Intent(KythiActivity.this,DangKyThiActivity.class);
-                intent.putExtra("data",mKythi);
-                startActivity(intent);
+                callDialog();
                 break;
             default:
         }
+    }
+
+    private void callDialog() {
+        AlertDialog dialog = new AlertDialog(this, mKythi);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

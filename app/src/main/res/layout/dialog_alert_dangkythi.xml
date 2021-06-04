@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            android:layout_marginTop="32dp"
+            android:id="@+id/congratulation_card"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardElevation="0dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/title"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/primary_text_light"
+                    android:layout_marginTop="36dp"
+                    android:text="Cảnh báo"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="32dp"
+                    android:id="@+id/message"
+                    android:gravity="center"
+                    android:text="Bạn đã đăng ký 1 kỳ thi trong học kỳ này. Đăng ký kỳ thi khác sẽ thay thế kỳ thi hiện tại " />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Chấp nhận"
+                    android:id="@+id/btn_ok"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="8dp"
+
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/primary_button" />
+                <TextView
+                    android:id="@+id/btn_thoat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/darkgrey"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:text="Thoát" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center_horizontal|top"
+            android:padding="2dp"
+            android:src="@drawable/ic_warning" />
+
+    </FrameLayout>
+</LinearLayout>
