@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +44,7 @@ public class MonThiFragment extends Fragment {
     private ImageView btn_backarrow;
     private RecyclerView mRecyclerView;
     private MonThiAdapter myAdapter;
+    private SearchView search_kythi;
 
     private OnButtonClickListener mOnButtonClickListener;
     private DataService mService;
@@ -75,6 +77,7 @@ public class MonThiFragment extends Fragment {
     private void initWeight(View mView) {
         btn_backarrow = (ImageView) mView.findViewById(R.id.btn_backarrow);
         mRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_monthi);
+        search_kythi = (SearchView) mView.findViewById(R.id.search_kythi);
     }
     private void initContent() {
         mService.GetAllMonThi()
@@ -159,6 +162,37 @@ public class MonThiFragment extends Fragment {
         btn_backarrow.setOnClickListener(v -> {
             mOnButtonClickListener.onButtonClicked(v);
         });
+
+        search_kythi.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                findKythi(newText);
+                return false;
+            }
+        });
+    }
+
+    private void findKythi(String query) {
+        ArrayList<DetailsMonThi> listResult = new ArrayList();
+        if(query.isEmpty()) {
+            listResult.addAll(detailsMonThiList);
+        }
+        else {
+            for (DetailsMonThi monThi : detailsMonThiList) {
+                if(monThi.getMaMonthi() != null && !monThi.getMaMonthi().isEmpty())  {
+                    if(monThi.getMaMonthi().contains(query)) {
+                        listResult.add(monThi);
+                    }
+                }
+            }
+        }
+        myAdapter = new MonThiAdapter(getContext(), listResult);
+        mRecyclerView.swapAdapter(myAdapter,false);
     }
 
 
