@@ -1,14 +1,15 @@
 package com.lecongdung.testvnu.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Telephony;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,13 +17,27 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.adapter.KyThiAdapter;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
 import com.lecongdung.testvnu.utils.BottomNavigationViewHelper;
+import com.lecongdung.testvnu.utils.OreoAndAboveNotification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +45,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.google.firebase.messaging.RemoteMessage.PRIORITY_HIGH;
 
 public class HomeActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUMBER = 0;
@@ -44,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     private List<Kythi> mListKythi = null;
     private KyThiAdapter myAdapter;
     private DataService mService;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +69,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setupBottomNavigationView();
         mService = DataClient.getDataClient();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        listenUpdate();
         initWeight();
         init();
     }
@@ -157,5 +176,67 @@ public class HomeActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce = false;
             }
         }, 2000);
+    }
+
+    private void listenUpdate() {
+        mDatabase.child("notifications").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String title = (String) snapshot.child("title").getValue();
+                String body = (String) snapshot.child("body").getValue();
+                boolean isUpdate = (boolean) snapshot.child("isUpdate").getValue();
+                if (isUpdate) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        sendOAndAboveNotification(title, body);
+                    } else {
+                        sendNormalNotification(title, body);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void sendNormalNotification(String title, String body) {
+        Intent intent = new Intent(this, HomeActivity.class);
+
+        int i = 10;
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pIntent = PendingIntent.getActivity(this, i, intent, PendingIntent.FLAG_ONE_SHOT);
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder builder = null;
+
+        builder = new NotificationCompat.Builder(this)
+                .setContentText(body)
+                .setContentTitle(title)
+                .setAutoCancel(true)
+                .setPriority(PRIORITY_HIGH)
+                .setSound(soundUri)
+                .setContentIntent(pIntent)
+                .setSmallIcon(R.drawable.logo)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(i, builder.build());
+    }
+
+    private void sendOAndAboveNotification(String title, String body) {
+
+        Intent intent = new Intent(this, HomeActivity.class);
+
+        int i = 10;
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pIntent = PendingIntent.getActivity(this, i, intent, PendingIntent.FLAG_ONE_SHOT);
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        OreoAndAboveNotification notification1 = new OreoAndAboveNotification(this);
+        Notification.Builder builder = notification1.getONotifications(title, body, pIntent, soundUri);
+
+        notification1.getManager().notify(i, builder.build());
     }
 }

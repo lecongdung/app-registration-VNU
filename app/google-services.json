@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855889125400",
+    "project_id": "vnu-register",
+    "storage_bucket": "vnu-register.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855889125400:android:c96f4ba8849d3aee50e36d",
+        "android_client_info": {
+          "package_name": "com.lecongdung.testvnu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855889125400-0qepkjm1o9cdpj3qcirc13fpctf0mli8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNS-HE7EUwG5HUDZS0ZwTORint5H6V5ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855889125400-0qepkjm1o9cdpj3qcirc13fpctf0mli8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

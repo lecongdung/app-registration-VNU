@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestVNU"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.MyKythiActivity"></activity>
+        <activity android:name=".view.MyKythiActivity"/>
         <activity android:name=".view.DangKyThiActivity" />
         <activity android:name=".view.KythiActivity" />
         <activity android:name=".view.ViewDetailActivity" />
@@ -26,7 +27,8 @@
         <activity android:name=".view.NotificationActivity" />
         <activity android:name=".view.HomeActivity" />
         <activity android:name=".view.SigninActivity" />
-        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.LoginActivity"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +36,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".fcm.FirebaseService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".fcm.FirebaseMessaging"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
