@@ -66,8 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textSize="16dp"
-                android:text="Đã thanh toán"
-                android:textColor="@color/green"
+                android:text="Chưa thanh toán"
+                android:textColor="@color/ratingScale"
                 android:textStyle="italic"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

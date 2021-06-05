@@ -8,7 +8,8 @@ import android.os.Bundle;
 import com.lecongdung.testvnu.view.HomeActivity;
 import com.lecongdung.testvnu.view.LoginActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

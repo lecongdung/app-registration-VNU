@@ -1,6 +1,8 @@
 package com.lecongdung.testvnu.model;
 
-public class MyKyThi {
+import java.io.Serializable;
+
+public class MyKyThi implements Serializable {
     private int Id;
     private String MaKythi;
     private String TenKythi;

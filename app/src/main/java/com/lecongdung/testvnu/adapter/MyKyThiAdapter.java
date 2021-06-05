@@ -2,6 +2,7 @@ package com.lecongdung.testvnu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.model.MyKyThi;
 import com.lecongdung.testvnu.view.KythiActivity;
+import com.lecongdung.testvnu.view.MyKythiActivity;
 
 import java.util.List;
 
@@ -39,16 +41,24 @@ public class MyKyThiAdapter extends RecyclerView.Adapter<MyKyThiAdapter.MyViewHo
     public void onBindViewHolder(@NonNull  MyKyThiAdapter.MyViewHolder holder, int position) {
         MyKyThi myKyThi = myKyThiList.get(position);
         holder.tv_makythi.setText(myKyThi.getMaKythi());
-        holder.tv_tenkythi.setText(myKyThi.getMaKythi());
-        holder.tv_trangthai.setText(myKyThi.getStatus());
+        holder.tv_tenkythi.setText(myKyThi.getTenKythi());
+        if(myKyThi.getStatus().equals("0")) {
+            holder.tv_trangthai.setText("Chưa thanh toán");
+        }
+        else {
+            holder.tv_trangthai.setText("Đã thanh toán");
+            holder.tv_trangthai.setTextColor(Color.rgb(0, 160, 66));
+        }
         holder.layout.setOnClickListener(v -> {
-
+            Intent intent = new Intent(context, MyKythiActivity.class);
+            intent.putExtra("data",myKyThi);
+            context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return myKyThiList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder
