@@ -3,7 +3,6 @@ package com.lecongdung.testvnu.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,11 +11,8 @@ import android.widget.RelativeLayout;
 
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.dialog.AlertDialog;
-import com.lecongdung.testvnu.dialog.SuccessDialog;
-import com.lecongdung.testvnu.fragment.EditDetailsOneFragment;
-import com.lecongdung.testvnu.fragment.EditDetailsTwoFragment;
-import com.lecongdung.testvnu.fragment.KythiOneFragment;
-import com.lecongdung.testvnu.fragment.KythiTwoFragment;
+import com.lecongdung.testvnu.fragment.KythiFragment;
+import com.lecongdung.testvnu.fragment.MonThiFragment;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -24,10 +20,10 @@ import com.lecongdung.testvnu.utils.NonSwipeableViewPager;
 import com.lecongdung.testvnu.utils.SectionsStatePageAdapter;
 
 public class KythiActivity extends AppCompatActivity
-        implements KythiOneFragment.OnButtonClickListener, KythiTwoFragment.OnButtonClickListener  {
+        implements KythiFragment.OnButtonClickListener, MonThiFragment.OnButtonClickListener  {
 
-    private KythiOneFragment kythiOneFragment;
-    private KythiTwoFragment kythiTwoFragment;
+    private KythiFragment kythiFragment;
+    private MonThiFragment monThiFragment;
 
     private SectionsStatePageAdapter pageAdapter;
     private NonSwipeableViewPager mViewPager;
@@ -59,11 +55,11 @@ public class KythiActivity extends AppCompatActivity
     }
 
     private void setupFragments() {
-        kythiOneFragment = new KythiOneFragment();
-        kythiTwoFragment = new KythiTwoFragment();
+        kythiFragment = new KythiFragment();
+        monThiFragment = new MonThiFragment(0,mKythi);
         pageAdapter = new SectionsStatePageAdapter(getSupportFragmentManager());
-        pageAdapter.addFragment(kythiOneFragment,"Fragment");
-        pageAdapter.addFragment(kythiTwoFragment,"Fragment");
+        pageAdapter.addFragment(kythiFragment,"Fragment");
+        pageAdapter.addFragment(monThiFragment,"Fragment");
     }
 
     private void setViewPager(int fragmentNumber) {

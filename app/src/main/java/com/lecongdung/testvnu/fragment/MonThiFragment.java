@@ -15,12 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.model.Kythi;
+import com.lecongdung.testvnu.model.MyKyThi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
 
 import java.text.ParseException;
 
-public class KythiTwoFragment extends Fragment {
+public class MonThiFragment extends Fragment {
     public interface OnButtonClickListener {
         void onButtonClicked(View view);
     }
@@ -31,7 +32,18 @@ public class KythiTwoFragment extends Fragment {
     private OnButtonClickListener mOnButtonClickListener;
     private DataService mService;
 
+    private int flag;
     private Kythi mKythi;
+    private MyKyThi mMyKyThi;
+
+    public MonThiFragment(int flag, Kythi mKythi) {
+        this.flag = flag;
+        this.mKythi = mKythi;
+    }
+    public MonThiFragment(int flag, MyKyThi mKythi) {
+        this.flag = flag;
+        this.mMyKyThi = mKythi;
+    }
 
     @Nullable
     @Override
@@ -39,7 +51,6 @@ public class KythiTwoFragment extends Fragment {
         final View mView = inflater.inflate(R.layout.fragment_monthi_details, container, false);
         mService = DataClient.getDataClient();
 
-        getData();
         initWeight(mView);
 
         initContent();
@@ -62,9 +73,7 @@ public class KythiTwoFragment extends Fragment {
             mOnButtonClickListener.onButtonClicked(v);
         });
     }
-    private void getData() {
-        mKythi = (Kythi) getActivity().getIntent().getSerializableExtra("data");
-    }
+
 
 
     @Override

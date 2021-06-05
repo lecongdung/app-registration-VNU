@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,29 +15,30 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.lecongdung.testvnu.R;
+import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.model.Kythi;
-import com.lecongdung.testvnu.view.LoginActivity;
+import com.lecongdung.testvnu.model.MyKyThi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class KythiOneFragment extends Fragment {
+public class MyKyThiFragment extends Fragment {
     public interface OnButtonClickListener {
         void onButtonClicked(View view);
     }
-
     private TextView tv_makythi, tv_tenkythi,tv_mota, tv_ngaythi, tv_socathi, tv_handk, tv_trangthai, btn_monthi_details, btn_thoat;
-    private Button btn_dangky;
+    private TextView tv_lephi, tv_lephi_danop,tv_lephi_ngaynop,tv_ngaydangky;
+    private TextView btn_huydangky;
 
     private OnButtonClickListener mOnButtonClickListener;
 
-    private Kythi mKythi;
+    private MyKyThi mMyKyThi;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View mView = inflater.inflate(R.layout.fragment_kythi_details, container, false);
+        final View mView = inflater.inflate(R.layout.fragment_mykythi_details, container, false);
         getData();
         initWeight(mView);
         try {
@@ -54,9 +54,8 @@ public class KythiOneFragment extends Fragment {
     }
 
     private void getData() {
-        mKythi = (Kythi) getActivity().getIntent().getSerializableExtra("data");
+        mMyKyThi = (MyKyThi) getActivity().getIntent().getSerializableExtra("data");
     }
-
 
     private void initWeight(View mView) {
         tv_makythi = (TextView) mView.findViewById(R.id.tv_makythi);
@@ -66,40 +65,52 @@ public class KythiOneFragment extends Fragment {
         tv_socathi = (TextView) mView.findViewById(R.id.tv_socathi);
         tv_handk = (TextView) mView.findViewById(R.id.tv_handk);
         tv_trangthai = (TextView) mView.findViewById(R.id.tv_trangthai);
+        tv_lephi = (TextView) mView.findViewById(R.id.tv_lephi);
+        tv_lephi_danop = (TextView) mView.findViewById(R.id.tv_lephi_danop);
+        tv_lephi_ngaynop = (TextView) mView.findViewById(R.id.tv_lephi_ngaynop);
+        tv_ngaydangky = (TextView) mView.findViewById(R.id.tv_ngaydangky);
+
         btn_monthi_details = (TextView) mView.findViewById(R.id.btn_monthi_details);
         btn_thoat = (TextView) mView.findViewById(R.id.btn_thoat);
-        btn_dangky = (Button) mView.findViewById(R.id.btn_dangky);
+        btn_huydangky = (TextView) mView.findViewById(R.id.btn_huydangky);
     }
 
     private void initContent() throws ParseException {
-        tv_makythi.setText(mKythi.getMaKythi());
-        tv_mota.setText(mKythi.getMota());
-        tv_tenkythi.setText(mKythi.getTenKythi());
-        tv_socathi.setText(mKythi.getSocathi()+"");
-        tv_trangthai.setText(mKythi.getTrangthai()+"");
+        tv_makythi.setText(mMyKyThi.getMaKythi());
+        tv_mota.setText(mMyKyThi.getMota());
+        tv_tenkythi.setText(mMyKyThi.getTenKythi());
+        tv_socathi.setText(mMyKyThi.getSocathi()+"");
+        tv_trangthai.setText(mMyKyThi.getStatus()+"");
 
-        if(mKythi.getTungay() != null && mKythi.getToingay() != null && mKythi.getHandangky() != null)  {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            SimpleDateFormat output = new SimpleDateFormat("dd/MM/yyyy");
-            SimpleDateFormat output2 = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-            Date d = sdf.parse(mKythi.getTungay());
-            String tungngay = output.format(d);
-            d = sdf.parse(mKythi.getToingay());
-            String toingay = output.format(d);
-            d = sdf.parse(mKythi.getHandangky());
-            String handk = output2.format(d);
+        String tungngay = "", toingay = "",handangky = "", ngaythu = "", ngaydangky="";
 
-            tv_ngaythi.setText(tungngay + " - " + toingay);
-            tv_handk.setText(handk);
+        if(mMyKyThi.getTungay() != null) {
+            tungngay = Common.convertDateToString(mMyKyThi.getTungay(),Common.output);
         }
-        else {
-            tv_ngaythi.setText("");
-            tv_handk.setText("");
+        if(mMyKyThi.getToingay() != null) {
+            toingay = Common.convertDateToString(mMyKyThi.getToingay(),Common.output);
         }
+        if(mMyKyThi.getHandangky() != null) {
+            handangky = Common.convertDateToString(mMyKyThi.getHandangky(),Common.output2);
+        }
+        if(mMyKyThi.getNgaythu() != null) {
+            ngaythu = Common.convertDateToString(mMyKyThi.getNgaythu(),Common.output2);
+        }
+        if(mMyKyThi.getNgaydangky() != null) {
+            ngaydangky = Common.convertDateToString(mMyKyThi.getNgaydangky(),Common.output2);
+        }
+
+        if(!tungngay.isEmpty()&&!toingay.isEmpty()) tv_ngaythi.setText(tungngay + "-" + toingay);
+
+        tv_handk.setText(handangky);
+        tv_lephi.setText(mMyKyThi.getLephidangky() + " VNĐ");
+        tv_lephi_danop.setText(mMyKyThi.getLephidanop() + " VNĐ");
+        tv_lephi_ngaynop.setText(ngaythu);
+        tv_ngaydangky.setText(ngaydangky);
     }
 
     private void initOnClick() {
-        btn_dangky.setOnClickListener(v -> {
+        btn_huydangky.setOnClickListener(v -> {
             mOnButtonClickListener.onButtonClicked(v);
         });
 
@@ -122,4 +133,5 @@ public class KythiOneFragment extends Fragment {
                     + " must implement OnButtonClickListener");
         }
     }
+
 }

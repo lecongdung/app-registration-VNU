@@ -67,9 +67,7 @@ public class MyTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_test);
         setupBottomNavigationView();
         mService = DataClient.getDataClient();
-
         initWeight();
-        initContent();
         init();
     }
 
@@ -90,7 +88,7 @@ public class MyTestActivity extends AppCompatActivity {
                     public void onResponse(Call<Lephi> call, Response<Lephi> response) {
                         if (response.isSuccessful()) {
                             mLephi = response.body();
-                            if(mLephi.getMakythi() != null) {
+                            if(mLephi.getMakythi() != null && !mLephi.getMakythi().isEmpty()) {
                                 getKythi(mLephi.getMakythi(), mLephi);
                             }
                         }
@@ -232,5 +230,10 @@ public class MyTestActivity extends AppCompatActivity {
         }, 2000);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initContent();
 
+    }
 }

@@ -88,6 +88,6 @@ public interface DataService {
     @GET("dangkythi-lephi/{id}")
     Call<Lephi> GetDangKyLePhi (@Path("id")int id);
 
-    @PATCH("student-cathi/{id}")
+    @PATCH("dangkythi-lephi/{id}")
     Call<Lephi> UpdateLePhi (@Path("id") int id, @Body BodyLePhiUpdate body);
 }
