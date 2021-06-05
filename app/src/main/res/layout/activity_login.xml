@@ -19,9 +19,9 @@
         <ImageView
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ic_logo"/>
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:src="@drawable/logo"/>
 
         <com.lecongdung.testvnu.customfonts.MyTextView_SF_Pro_Display_Medium
             android:layout_gravity="center"
@@ -46,7 +46,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="110.1dp"
+            android:layout_marginTop="75.1dp"
             android:layout_marginLeft="28.7dp"
             android:layout_marginRight="28.9dp"
             app:cardElevation="1dp"
