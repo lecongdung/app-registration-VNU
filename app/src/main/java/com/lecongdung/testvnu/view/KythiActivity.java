@@ -56,7 +56,7 @@ public class KythiActivity extends AppCompatActivity
 
     private void setupFragments() {
         kythiFragment = new KythiFragment();
-        monThiFragment = new MonThiFragment(0,mKythi);
+        monThiFragment = new MonThiFragment(0,mKythi.getMaKythi());
         pageAdapter = new SectionsStatePageAdapter(getSupportFragmentManager());
         pageAdapter.addFragment(kythiFragment,"Fragment");
         pageAdapter.addFragment(monThiFragment,"Fragment");

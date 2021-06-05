@@ -1,5 +1,6 @@
 package com.lecongdung.testvnu.remote;
 
+import com.lecongdung.testvnu.model.Cathi;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.model.Lephi;
 import com.lecongdung.testvnu.model.Monthi;
@@ -83,11 +84,12 @@ public interface DataService {
     Call<List<Monthi>> GetAllMonThi ();
 
     @GET("kythi-cathi")
-    Call<List<Monthi>> GetAllCaThi ();
+    Call<List<Cathi>> GetAllCaThi ();
 
     @GET("dangkythi-lephi/{id}")
     Call<Lephi> GetDangKyLePhi (@Path("id")int id);
 
     @PATCH("dangkythi-lephi/{id}")
     Call<Lephi> UpdateLePhi (@Path("id") int id, @Body BodyLePhiUpdate body);
+
 }
