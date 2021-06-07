@@ -22,7 +22,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xem thông tin cá nhân"
+                    android:text="Hồ sơ cá nhân"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:layout_centerHorizontal="true"

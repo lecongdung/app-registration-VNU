@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestVNU"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.MyKythiActivity"/>
+        <activity android:name=".view.EditInfoStudentActivity"></activity>
+        <activity android:name=".view.MyKythiActivity" />
         <activity android:name=".view.DangKyThiActivity" />
         <activity android:name=".view.KythiActivity" />
         <activity android:name=".view.ViewDetailActivity" />
@@ -27,8 +28,9 @@
         <activity android:name=".view.NotificationActivity" />
         <activity android:name=".view.HomeActivity" />
         <activity android:name=".view.SigninActivity" />
-        <activity android:name=".view.LoginActivity"
-            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".view.LoginActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

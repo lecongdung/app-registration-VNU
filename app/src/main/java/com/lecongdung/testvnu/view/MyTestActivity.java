@@ -82,7 +82,7 @@ public class MyTestActivity extends AppCompatActivity {
     }
 
     private void initContent() {
-        mService.GetDangKyLePhi(Common.mStudent.getId()-1)
+        mService.GetDangKyLePhi(Common.mStudent.getId())
                 .enqueue(new Callback<Lephi>() {
                     @Override
                     public void onResponse(Call<Lephi> call, Response<Lephi> response) {

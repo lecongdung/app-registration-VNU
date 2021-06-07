@@ -145,7 +145,7 @@ public class DangKyThiActivity extends AppCompatActivity {
 
         body.setNgaydangky(strDate);
         body.setStatus("0");
-        mService.UpdateLePhi(Common.mStudent.getId()-1,body)
+        mService.UpdateLePhi(Common.mStudent.getId(),body)
                 .enqueue(new Callback<Lephi>() {
                     @Override
                     public void onResponse(Call<Lephi> call, Response<Lephi> response) {
