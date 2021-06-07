@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.common.Common;
+import com.lecongdung.testvnu.data.SessionManager;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -47,12 +48,15 @@ public class AccountActivity extends AppCompatActivity {
     private DataService mService;
     private String mOTP;
 
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
         setupBottomNavigationView();
         mService = DataClient.getDataClient();
+        sessionManager = new SessionManager(getApplication());
 
         initWeight();
         initOnClick();
@@ -76,6 +80,7 @@ public class AccountActivity extends AppCompatActivity {
     private void initOnClick() {
         btn_signout.setOnClickListener(v -> {
             startLoginActivity();
+            sessionManager.SetLogin(false);
             Common.mStudent = null;
         });
 

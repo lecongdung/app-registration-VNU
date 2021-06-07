@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.common.Common;
+import com.lecongdung.testvnu.data.SessionManager;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -48,11 +49,14 @@ public class LoginActivity extends AppCompatActivity {
     private String mOTP = null;
     private Student mStudent = null;
 
+    private SessionManager sessionManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sessionManager = new SessionManager(getApplication());
 
         initWeigth();
         initOnClick();
@@ -88,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (response.isSuccessful()) {
                                     card_view_loading.setVisibility(View.GONE);
                                     Common.mStudent = response.body();
+                                    saveLogin();
                                     startHomeActivity();
                                 }
                                 else {
@@ -259,5 +264,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+    private void saveLogin() {
+        sessionManager.SetLogin(true,Common.mStudent.getTendangnhap(),edt_password.getText().toString());
     }
 }

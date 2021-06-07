@@ -70,7 +70,7 @@ public class ViewDetailActivity extends AppCompatActivity {
                             tv_email.setText(result.getEmail());
                             tv_hoten.setText(result.getHoten());
                             tv_phone.setText(result.getSodienthoai());
-                            tv_ngaysinh.setText(result.getNgaysinh());
+                            tv_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output));
                             if(result.equals("0")) {
                                 tv_gioitinh.setText("Nam");
                             }else {
@@ -79,7 +79,7 @@ public class ViewDetailActivity extends AppCompatActivity {
                             tv_diachi.setText(result.getNoisinh());
                             tv_dantoc.setText(result.getDantoc());
                             tv_cmt.setText(result.getSoCMND());
-                            tv_ngaycap.setText(result.getNgaycap());
+                            tv_ngaycap.setText(Common.convertDateToString(result.getNgaycap(),Common.output));
                             tv_noicap.setText(result.getNoicap());
                             tv_khuvuc.setText(result.getKhuvuc());
                         } else {

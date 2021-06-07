@@ -83,7 +83,6 @@
                             android:layout_marginLeft="10dp"
                             android:background="#00000000"
                             android:hint="Tên đăng nhập"
-                            android:text="lcd"
                             android:textColorHint="@color/TransparentWhite" />
 
 
@@ -123,7 +122,6 @@
                             android:layout_marginLeft="10dp"
                             android:background="#00000000"
                             android:hint="Mật khẩu"
-                            android:text="1234"
                             android:inputType="textPassword"
                             android:textColorHint="@color/TransparentWhite" />
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -33,10 +34,17 @@ public class EditDetailsOneFragment extends Fragment {
     public RadioGroup mGenderGroup;
     public RadioButton maleRadioButton, femaleRadioButton;
     private Button btn_next;
+    public ImageView btn_back;
 
     private OnButtonClickListener mOnButtonClickListener;
     private DatePickerDialog.OnDateSetListener date;
     private Calendar mCalandar;
+
+    private String flagPreActivity;
+
+    public EditDetailsOneFragment(String flagPreActivity) {
+        this.flagPreActivity = flagPreActivity;
+    }
 
     @Nullable
     @Override
@@ -62,6 +70,10 @@ public class EditDetailsOneFragment extends Fragment {
         maleRadioButton = (RadioButton) view.findViewById(R.id.femaleButton);
         femaleRadioButton = (RadioButton) view.findViewById(R.id.maleButton);
 
+        btn_back = (ImageView) view.findViewById(R.id.btn_back);
+        if(flagPreActivity.equals("SigninActivity")) {
+           btn_back.setVisibility(View.GONE);
+        }
         btn_next = (Button) view.findViewById(R.id.btn_next);
 
         mCalandar = Calendar.getInstance();
@@ -98,18 +110,18 @@ public class EditDetailsOneFragment extends Fragment {
                     mOnButtonClickListener.onButtonClicked(v);
         });
 
-        edt_ngaysinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.add(Calendar.DATE, 0);
+        edt_ngaysinh.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DATE, 0);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), date, mCalandar
-                        .get(Calendar.YEAR), mCalandar.get(Calendar.MONTH),
-                        mCalandar.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
-                datePickerDialog.show();
-            }
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), date, mCalandar
+                    .get(Calendar.YEAR), mCalandar.get(Calendar.MONTH),
+                    mCalandar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+            datePickerDialog.show();
+        });
+        btn_back.setOnClickListener(v -> {
+            getActivity().finish();
         });
     }
 

@@ -21,6 +21,10 @@ import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdateDetail;
 import com.lecongdung.testvnu.utils.NonSwipeableViewPager;
 import com.lecongdung.testvnu.utils.SectionsStatePageAdapter;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,6 +67,7 @@ public class EditDetailStudentActivity extends AppCompatActivity
 
     private void setContent() {
         if(!flagPreActivity.equals("SigninActivity")) {
+
             mService.StudentDetail(Common.mStudent.getId())
                     .enqueue(new Callback<ResponeStudentUpdateDetail>() {
                         @Override
@@ -71,7 +76,8 @@ public class EditDetailStudentActivity extends AppCompatActivity
                                 ResponeStudentUpdateDetail result = response.body();
                                 editDetailsOneFragment.edt_hoten.setText(result.getHoten());
                                 editDetailsOneFragment.edt_phone.setText(result.getSodienthoai());
-                                editDetailsOneFragment.edt_ngaysinh.setText(result.getNgaysinh());
+                                editDetailsOneFragment.edt_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output));
+
                                 if(result.equals("0")) {
                                     editDetailsOneFragment.maleRadioButton.setChecked(true);
                                 }else {
@@ -83,10 +89,9 @@ public class EditDetailStudentActivity extends AppCompatActivity
                                 editDetailsOneFragment.edt_phuong.setText(dc[1]);
                                 editDetailsOneFragment.edt_thanhpho.setText(dc[2]);
                                 editDetailsOneFragment.edt_tinh.setText(dc[3]);
-
                                 editDetailsTwoFragment.edt_dantoc.setText(result.getDantoc());
                                 editDetailsTwoFragment.edt_cmt.setText(result.getSoCMND());
-                                editDetailsTwoFragment.edt_ngaycap.setText(result.getNgaycap());
+                                editDetailsTwoFragment.edt_ngaycap.setText(Common.convertDateToString(result.getNgaycap(),Common.output));
                                 editDetailsTwoFragment.edt_noicap.setText(result.getNoicap());
                                 editDetailsTwoFragment.edt_khuvuc.setText(result.getKhuvuc());
                             } else {
@@ -114,7 +119,7 @@ public class EditDetailStudentActivity extends AppCompatActivity
     }
 
     private void setupFragments() {
-        editDetailsOneFragment = new EditDetailsOneFragment();
+        editDetailsOneFragment = new EditDetailsOneFragment(flagPreActivity);
         editDetailsTwoFragment = new EditDetailsTwoFragment();
         pageAdapter = new SectionsStatePageAdapter(getSupportFragmentManager());
         pageAdapter.addFragment(editDetailsOneFragment,"Fragment");

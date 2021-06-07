@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.common.Common;
+import com.lecongdung.testvnu.data.SessionManager;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -44,10 +45,14 @@ public class SigninActivity extends AppCompatActivity {
 
     private DataService mService;
 
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
+        sessionManager = new SessionManager(getApplication());
+
 
         initWeight();
         initOnClick();
@@ -228,6 +233,7 @@ public class SigninActivity extends AppCompatActivity {
                     public void onResponse(Call<Student> call, Response<Student> response) {
                         if (response.isSuccessful()) {
                             Common.mStudent = response.body();
+                            saveLogin();
                             startEditDetailActivity();
                         }
                     }
@@ -246,6 +252,10 @@ public class SigninActivity extends AppCompatActivity {
         intent.putExtra("activity","SigninActivity");
         startActivity(intent);
         finish();
+    }
+
+    private void saveLogin() {
+        sessionManager.SetLogin(true,Common.mStudent.getTendangnhap(),edt_password.getText().toString());
     }
 
 }
