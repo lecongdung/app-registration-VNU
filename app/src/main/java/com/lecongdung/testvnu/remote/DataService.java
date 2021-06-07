@@ -5,6 +5,7 @@ import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.model.Lephi;
 import com.lecongdung.testvnu.model.Monthi;
 import com.lecongdung.testvnu.model.Student;
+import com.lecongdung.testvnu.model.ThongBao;
 import com.lecongdung.testvnu.remote.entity.BodyLePhiUpdate;
 import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
@@ -12,6 +13,7 @@ import com.lecongdung.testvnu.remote.entity.BodySendOTP;
 import com.lecongdung.testvnu.remote.entity.BodyStudentDelete;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateDetail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateEmail;
+import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateInfo;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateVerify;
 import com.lecongdung.testvnu.remote.entity.ResponeRegister;
@@ -89,7 +91,14 @@ public interface DataService {
     @GET("dangkythi-lephi/{id}")
     Call<Lephi> GetDangKyLePhi (@Path("id")int id);
 
+    @GET("notification")
+    Call<List<ThongBao>> GetNotification ();
+
+
     @PATCH("dangkythi-lephi/{id}")
     Call<Lephi> UpdateLePhi (@Path("id") int id, @Body BodyLePhiUpdate body);
+
+    @PATCH("student-info/{id}")
+    Call<ResponeStudentUpdateDetail> StudentUpdateInfo (@Path("id") int id, @Body BodyStudentUpdateInfo body);
 
 }

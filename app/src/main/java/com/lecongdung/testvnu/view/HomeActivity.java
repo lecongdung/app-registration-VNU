@@ -130,12 +130,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initList(List<Kythi> listKythi) {
-        mNoResultsFoundLayout.setVisibility(View.INVISIBLE);
-        rv_kythi.setHasFixedSize(true);
-        rv_kythi.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter = new KyThiAdapter(HomeActivity.this, listKythi);
-        rv_kythi.setAdapter(myAdapter);
-        mListKythi = listKythi;
+        if(!listKythi.isEmpty()) {
+            mNoResultsFoundLayout.setVisibility(View.INVISIBLE);
+            rv_kythi.setHasFixedSize(true);
+            rv_kythi.setLayoutManager(new LinearLayoutManager(this));
+            myAdapter = new KyThiAdapter(HomeActivity.this, listKythi);
+            rv_kythi.setAdapter(myAdapter);
+            mListKythi = listKythi;
+        }
     }
 
     private void findKythi(String query) {

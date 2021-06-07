@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cardView1"
                 android:layout_marginTop="20dp"
-                android:text="XEM THÔNG TIN"
+                android:text="Hồ sơ cá nhân"
                 android:textColor="@color/accountSettings"
                 android:textSize="15dp"
                 android:textStyle="bold" />
@@ -243,7 +243,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="20dp"
                         android:background="@android:color/transparent"
-                        android:text="Thông tin chi tiết"
+                        android:text="Xem hồ sơ"
                         android:textAlignment="textStart"
                         android:textColor="@color/darkgrey"
                         android:textSize="12dp" />

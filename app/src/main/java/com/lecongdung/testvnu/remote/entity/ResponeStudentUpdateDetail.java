@@ -1,6 +1,8 @@
 package com.lecongdung.testvnu.remote.entity;
 
-public class ResponeStudentUpdateDetail {
+import java.io.Serializable;
+
+public class ResponeStudentUpdateDetail implements Serializable {
     private int id;
     private String tendangnhap;
     private String Email;
@@ -53,6 +55,56 @@ public class ResponeStudentUpdateDetail {
     private String updatedAt;
 
     public ResponeStudentUpdateDetail() {
+        this.id = 0;
+        this.tendangnhap = "";
+        Email = "";
+        Hoten = "";
+        Sodienthoai = "";
+        Ngaysinh = "";
+        Gioitinh = "";
+        Noisinh = "";
+        Dienthoaicodinh = "";
+        Dantoc = "";
+        SoCMND = "";
+        Ngaycap = "";
+        Noicap = "";
+        TinhTT = "";
+        HuyenTT = "";
+        Anhhoso = "";
+        Nguoinhanthu = "";
+        Diachinhanthu = "";
+        this.doituonguutien = "";
+        Khuvuc = "";
+        Truonglop10 = "";
+        Tinhlop10 = "";
+        Truonglop11 = "";
+        Tinhlop11 = "";
+        Truonglop12 = "";
+        Tinhlop12 = "";
+        Huyenlop10 = "";
+        Huyenlop11 = "";
+        Huyenlop12 = "";
+        L10K1 = "";
+        L10K2 = "";
+        L10CN = "";
+        L11K1 = "";
+        L11K2 = "";
+        L11CN = "";
+        L12K1 = "";
+        L12K2 = "";
+        L12CN = "";
+        NamTotnghiep = "";
+        this.dToan = "";
+        this.dVan = "";
+        this.dNgoaingu = "";
+        this.DLy = "";
+        this.dHoa = "";
+        this.dSinh = "";
+        this.dSu = "";
+        this.dDia = "";
+        this.dGDCD = "";
+        this.createdAt = "";
+        this.updatedAt = "";
     }
 
     public ResponeStudentUpdateDetail(int id, String tendangnhap, String email, String hoten, String sodienthoai, String ngaysinh, String gioitinh, String noisinh, String dienthoaicodinh, String dantoc, String soCMND, String ngaycap, String noicap, String tinhTT, String huyenTT, String anhhoso, String nguoinhanthu, String diachinhanthu, String doituonguutien, String khuvuc, String truonglop10, String tinhlop10, String truonglop11, String tinhlop11, String truonglop12, String tinhlop12, String huyenlop10, String huyenlop11, String huyenlop12, String l10K1, String l10K2, String l10CN, String l11K1, String l11K2, String l11CN, String l12K1, String l12K2, String l12CN, String namTotnghiep, String dToan, String dVan, String dNgoaingu, String DLy, String dHoa, String dSinh, String dSu, String dDia, String dGDCD, String createdAt, String updatedAt) {
@@ -107,6 +159,8 @@ public class ResponeStudentUpdateDetail {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+
 
     public int getId() {
         return id;
@@ -506,5 +560,157 @@ public class ResponeStudentUpdateDetail {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void responeContent(ResponeStudentUpdateDetail respone) {
+        if(respone.getId() == 0) {
+            this.id = respone.getId();
+        }
+        if(respone.getTendangnhap() != null) {
+            this.tendangnhap = respone.getTendangnhap();
+        }
+        if(respone.getEmail() != null) {
+            this.Email = respone.getEmail();
+        }
+        if(respone.getHoten() != null) {
+            this.Hoten = respone.getHoten();
+        }
+        if(respone.getSodienthoai() != null) {
+            this.Sodienthoai = respone.getSodienthoai();
+        }
+        if(respone.getNgaysinh() != null) {
+            this.Ngaysinh = respone.getNgaysinh();
+        }
+        if(respone.getGioitinh() != null) {
+            this.Gioitinh = respone.getGioitinh();
+        }
+        if(respone.getNoisinh() != null) {
+            this.Noisinh = respone.getNoisinh();
+        }
+        if(respone.getDienthoaicodinh() != null) {
+            this.Dienthoaicodinh = respone.getDienthoaicodinh();
+        }
+        if(respone.getDantoc() != null) {
+            this.Dantoc = respone.getDantoc();
+        }
+        if(respone.getSoCMND() != null) {
+            this.SoCMND = respone.getSoCMND();
+        }
+        if(respone.getNgaycap() != null) {
+            this.Ngaycap = respone.getNgaycap();
+        }
+        if(respone.getNoicap() != null) {
+            this.Noicap = respone.getNoicap();
+        }
+        if(respone.getTinhTT() != null) {
+            this.TinhTT = respone.getTinhTT();
+        }
+        if(respone.getHuyenTT() != null) {
+            this.HuyenTT = respone.getHuyenTT();
+        }
+        if(respone.getAnhhoso() != null) {
+            this.Anhhoso = respone.getAnhhoso();
+        }
+        if(respone.getNguoinhanthu() != null) {
+            this.Nguoinhanthu = respone.getNguoinhanthu();
+        }
+        if(respone.getDiachinhanthu() != null) {
+            this.Diachinhanthu = respone.getDiachinhanthu();
+        }
+        if(respone.getDoituonguutien() != null) {
+            this.doituonguutien = respone.getDoituonguutien();
+        }
+        if(respone.getKhuvuc() != null) {
+            this.Khuvuc = respone.getKhuvuc();
+        }
+        if(respone.getTruonglop10() != null) {
+            this.Truonglop10 = respone.getTruonglop10();
+        }
+        if(respone.getTinhlop10() != null) {
+            this.Tinhlop10 = respone.getTinhlop10();
+        }
+        if(respone.getHuyenlop10() != null) {
+            this.Huyenlop10 = respone.getHuyenlop10();
+        }
+        if(respone.getL10K1() != null) {
+            this.L10K1 = respone.getL10K1();
+        }
+        if(respone.getL10K2() != null) {
+            this.L10K2 = respone.getL10K2();
+        }
+        if(respone.getL10CN() != null) {
+            this.L10CN = respone.getL10CN();
+        }
+
+        if(respone.getTruonglop11() != null) {
+            this.Truonglop11 = respone.getTruonglop11();
+        }
+        if(respone.getTinhlop11() != null) {
+            this.Tinhlop11 = respone.getTinhlop11();
+        }
+        if(respone.getHuyenlop11() != null) {
+            this.Huyenlop11 = respone.getHuyenlop11();
+        }
+        if(respone.getL11K1() != null) {
+            this.L11K1 = respone.getL11K1();
+        }
+        if(respone.getL11K2() != null) {
+            this.L11K2 = respone.getL11K2();
+        }
+        if(respone.getL11CN() != null) {
+            this.L11CN = respone.getL11CN();
+        }
+
+
+        if(respone.getTruonglop12() != null) {
+            this.Truonglop12 = respone.getTruonglop12();
+        }
+        if(respone.getTinhlop12() != null) {
+            this.Tinhlop12 = respone.getTinhlop12();
+        }
+        if(respone.getHuyenlop12() != null) {
+            this.Huyenlop12 = respone.getHuyenlop12();
+        }
+        if(respone.getL12K1() != null) {
+            this.L12K1 = respone.getL12K1();
+        }
+        if(respone.getL12K2() != null) {
+            this.L12K2 = respone.getL12K2();
+        }
+        if(respone.getL12CN() != null) {
+            this.L12CN = respone.getL12CN();
+        }
+
+        if(respone.getNamTotnghiep() != null) {
+            this.NamTotnghiep = respone.getNamTotnghiep();
+        }
+        if(respone.getdToan() != null) {
+            this.dToan = respone.getdToan();
+        }
+        if(respone.getdVan() != null) {
+            this.dVan = respone.getdVan();
+        }
+        if(respone.getdNgoaingu() != null) {
+            this.dNgoaingu = respone.getdNgoaingu();
+        }
+        if(respone.getDLy() != null) {
+            this.DLy = respone.getDLy();
+        }
+        if(respone.getdHoa() != null) {
+            this.dHoa = respone.getdHoa();
+        }
+        if(respone.getdSinh() != null) {
+            this.dSinh = respone.getdSinh();
+        }
+        if(respone.getdSu() != null) {
+            this.dSu = respone.getdSu();
+        }
+        if(respone.getdDia() != null) {
+            this.dDia = respone.getdDia();
+        }
+        if(respone.getdGDCD() != null) {
+            this.dGDCD = respone.getdGDCD();
+        }
+
     }
 }
