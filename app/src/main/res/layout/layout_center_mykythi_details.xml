@@ -394,18 +394,6 @@
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:background="@drawable/btn_style_2" />
-
-            <TextView
-                android:id="@+id/btn_thoat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="@color/darkgrey"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:text="Thoát" />
         </LinearLayout>
 
     </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,8 @@ public class MyKyThiFragment extends Fragment {
     public interface OnButtonClickListener {
         void onButtonClicked(View view);
     }
-    private TextView tv_makythi, tv_tenkythi,tv_mota, tv_ngaythi, tv_socathi, tv_handk, tv_trangthai, btn_monthi_details, btn_thoat;
+    private TextView tv_makythi, tv_tenkythi,tv_mota, tv_ngaythi, tv_socathi, tv_handk, tv_trangthai, btn_monthi_details;
+    private ImageView btn_thoat;
     private TextView tv_lephi, tv_lephi_danop,tv_lephi_ngaynop,tv_ngaydangky;
     private TextView btn_huydangky;
 
@@ -71,7 +73,7 @@ public class MyKyThiFragment extends Fragment {
         tv_ngaydangky = (TextView) mView.findViewById(R.id.tv_ngaydangky);
 
         btn_monthi_details = (TextView) mView.findViewById(R.id.btn_monthi_details);
-        btn_thoat = (TextView) mView.findViewById(R.id.btn_thoat);
+        btn_thoat = (ImageView) mView.findViewById(R.id.btn_thoat);
         btn_huydangky = (TextView) mView.findViewById(R.id.btn_huydangky);
     }
 

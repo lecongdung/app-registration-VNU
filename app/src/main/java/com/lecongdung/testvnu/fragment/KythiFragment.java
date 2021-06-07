@@ -29,7 +29,8 @@ public class KythiFragment extends Fragment {
         void onButtonClicked(View view);
     }
 
-    private TextView tv_makythi, tv_tenkythi,tv_mota, tv_ngaythi, tv_socathi, tv_handk, tv_trangthai, btn_monthi_details, btn_thoat;
+    private TextView tv_makythi, tv_tenkythi,tv_mota, tv_ngaythi, tv_socathi, tv_handk, tv_trangthai, btn_monthi_details;
+    private ImageView btn_thoat;
     private Button btn_dangky;
 
     private OnButtonClickListener mOnButtonClickListener;
@@ -68,7 +69,7 @@ public class KythiFragment extends Fragment {
         tv_handk = (TextView) mView.findViewById(R.id.tv_handk);
         tv_trangthai = (TextView) mView.findViewById(R.id.tv_trangthai);
         btn_monthi_details = (TextView) mView.findViewById(R.id.btn_monthi_details);
-        btn_thoat = (TextView) mView.findViewById(R.id.btn_thoat);
+        btn_thoat = (ImageView) mView.findViewById(R.id.btn_thoat);
         btn_dangky = (Button) mView.findViewById(R.id.btn_dangky);
     }
 

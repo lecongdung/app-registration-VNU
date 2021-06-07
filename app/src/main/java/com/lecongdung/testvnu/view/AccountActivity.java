@@ -42,6 +42,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private TextView tv_username, tv_email, btn_signout;
     private Button btn_update_mail, btn_update_password, btn_update_detail, btn_view_detail;
+    private ImageView btn_notification;
 
     private DataService mService;
     private String mOTP;
@@ -61,6 +62,7 @@ public class AccountActivity extends AppCompatActivity {
         tv_username = (TextView) findViewById(R.id.displayUsername);
         tv_email = (TextView) findViewById(R.id.email_textview);
         btn_signout = (TextView) findViewById(R.id.btn_signout);
+        btn_notification = (ImageView) this.findViewById(R.id.btn_notification);
 
         btn_update_mail = (Button) findViewById(R.id.updateEmailButton);
         btn_update_password = (Button) findViewById(R.id.updatePasswordButton);
@@ -94,6 +96,11 @@ public class AccountActivity extends AppCompatActivity {
 
         btn_view_detail.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, ViewDetailActivity.class);
+            startActivity(intent);
+        });
+
+        btn_notification.setOnClickListener(v -> {
+            Intent intent = new Intent(this, NotificationActivity.class);
             startActivity(intent);
         });
     }

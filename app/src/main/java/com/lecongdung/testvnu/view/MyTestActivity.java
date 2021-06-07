@@ -170,7 +170,10 @@ public class MyTestActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                findKythi(newText);
+                if(mListKythi != null) {
+                    if(!mListKythi.isEmpty())
+                    findKythi(newText);
+                }
                 return false;
             }
         });

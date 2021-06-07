@@ -15,7 +15,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp">
 
 
                 <TextView
@@ -26,6 +27,16 @@
                     android:textSize="20sp"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/btn_thoat"
+                    android:backgroundTint="@android:color/white"
+                    android:background="@drawable/ic_arrow"/>
 
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>

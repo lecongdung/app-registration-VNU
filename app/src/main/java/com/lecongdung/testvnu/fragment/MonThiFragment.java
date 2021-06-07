@@ -171,7 +171,10 @@ public class MonThiFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                findKythi(newText);
+                if(detailsMonThiList != null) {
+                    if (!detailsMonThiList.isEmpty())
+                    findKythi(newText);
+                }
                 return false;
             }
         });
