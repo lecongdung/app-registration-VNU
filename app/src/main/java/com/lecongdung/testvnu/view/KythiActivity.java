@@ -3,21 +3,29 @@ package com.lecongdung.testvnu.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.lecongdung.testvnu.R;
+import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.dialog.AlertDialog;
 import com.lecongdung.testvnu.fragment.KythiFragment;
 import com.lecongdung.testvnu.fragment.MonThiFragment;
 import com.lecongdung.testvnu.model.Kythi;
+import com.lecongdung.testvnu.model.Lephi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
 import com.lecongdung.testvnu.utils.NonSwipeableViewPager;
 import com.lecongdung.testvnu.utils.SectionsStatePageAdapter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class KythiActivity extends AppCompatActivity
         implements KythiFragment.OnButtonClickListener, MonThiFragment.OnButtonClickListener  {
@@ -83,7 +91,29 @@ public class KythiActivity extends AppCompatActivity
                 finish();
                 break;
             case R.id.btn_dangky:
-                callDialog();
+                mService.GetDangKyLePhi(Common.mStudent.getId()-1)
+                        .enqueue(new Callback<Lephi>() {
+                            @Override
+                            public void onResponse(Call<Lephi> call, Response<Lephi> response) {
+                                if (response.isSuccessful()) {
+                                    Lephi mLephi = response.body();
+                                    if(mLephi.getMakythi() != null && !mLephi.getMakythi().isEmpty()) {
+                                        callDialog();
+                                    }
+                                    else {
+                                        startDangKyActivity();
+                                    }
+                                }
+                                else{
+                                    startDangKyActivity();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Lephi> call, Throwable t) {
+                                Toast.makeText(KythiActivity.this,"Không thể kết nối may chủ", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 break;
             default:
         }
@@ -93,5 +123,11 @@ public class KythiActivity extends AppCompatActivity
         AlertDialog dialog = new AlertDialog(this, mKythi);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
+    }
+
+    private void startDangKyActivity() {
+        Intent intent = new Intent(this, DangKyThiActivity.class);
+        intent.putExtra("data", mKythi);
+        startActivity(intent);
     }
 }
