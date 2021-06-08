@@ -107,7 +107,7 @@ public class AlertDialog extends Dialog {
         body.setLephidangky(0);
         body.setLephidanop(0);
         body.setStatus("0");
-        mService.UpdateLePhi(Common.mStudent.getId() - 1, body)
+        mService.UpdateLePhi(Common.mStudent.getId(), body)
                 .enqueue(new Callback<Lephi>() {
                     @Override
                     public void onResponse(Call<Lephi> call, Response<Lephi> response) {
