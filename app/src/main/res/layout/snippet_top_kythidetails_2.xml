@@ -65,8 +65,7 @@
                 android:background="@drawable/shapebgsearch"
                 app:defaultQueryHint="Tìm kiếm môn thi"
                 app:iconifiedByDefault="false"
-                app:queryBackground="@null"
-                app:queryHint="Tìm kiếm kỳ thi" />
+                app:queryHint="Tìm kiếm môn thi" />
 
         </LinearLayout>
     </LinearLayout>
