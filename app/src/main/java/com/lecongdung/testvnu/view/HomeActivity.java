@@ -1,10 +1,10 @@
 package com.lecongdung.testvnu.view;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -31,13 +31,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.RemoteMessage;
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.adapter.KyThiAdapter;
+import com.lecongdung.testvnu.common.Common;
+import com.lecongdung.testvnu.fcm.Notification;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
+import com.lecongdung.testvnu.utils.BadgeView;
 import com.lecongdung.testvnu.utils.BottomNavigationViewHelper;
 import com.lecongdung.testvnu.utils.OreoAndAboveNotification;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,10 +65,13 @@ public class HomeActivity extends AppCompatActivity {
     private SearchView search_kythi;
     private RecyclerView rv_kythi;
     private RelativeLayout mNoResultsFoundLayout;
+    private Context mContext = HomeActivity.this;
 
     private List<Kythi> mListKythi = null;
     private KyThiAdapter myAdapter;
     private DataService mService;
+
+    private BadgeView badgeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +80,7 @@ public class HomeActivity extends AppCompatActivity {
         setupBottomNavigationView();
         mService = DataClient.getDataClient();
         initWeight();
+        badgeView = new BadgeView(mContext, btn_notification);
         init();
     }
 
@@ -88,7 +100,6 @@ public class HomeActivity extends AppCompatActivity {
         search_kythi = (SearchView) this.findViewById(R.id.search_kythi);
         rv_kythi = (RecyclerView) findViewById(R.id.recycler_menu);
         mNoResultsFoundLayout = (RelativeLayout) findViewById(R.id.noResultsFoundLayout);
-
     }
 
     private void init() {
@@ -179,4 +190,40 @@ public class HomeActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
+
+    private void setupBadge(int reminderLength){
+        if (reminderLength > 0){
+            //Adds badge to the notification imageview on the toolbar
+            badgeView.setTextSize(10);
+            badgeView.setTextColor(Color.parseColor("#ffffff"));
+            badgeView.setBadgeBackgroundColor(Color.parseColor("#ff0000"));
+            badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+            badgeView.setText(String.valueOf(reminderLength));
+            badgeView.setBadgeMargin(5, 0);
+            badgeView.show();
+
+        } else {
+            badgeView.hide();
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(RemoteMessage notification){
+        setupBadge(Common.number);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+        setupBadge(Common.number);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
 }

@@ -3,7 +3,9 @@ package com.lecongdung.testvnu.view;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -18,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.messaging.RemoteMessage;
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.data.SessionManager;
+import com.lecongdung.testvnu.fcm.Notification;
 import com.lecongdung.testvnu.model.Student;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -28,7 +32,12 @@ import com.lecongdung.testvnu.remote.entity.BodySendOTP;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdatePassword;
 import com.lecongdung.testvnu.remote.entity.ResponeSendOTP;
 import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdate;
+import com.lecongdung.testvnu.utils.BadgeView;
 import com.lecongdung.testvnu.utils.BottomNavigationViewHelper;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -44,11 +53,14 @@ public class AccountActivity extends AppCompatActivity {
     private TextView tv_username, tv_email, btn_signout;
     private Button btn_update_mail, btn_update_password, btn_update_detail, btn_view_detail;
     private ImageView btn_notification;
+    private Context mContext = AccountActivity.this;
 
     private DataService mService;
     private String mOTP;
 
     private SessionManager sessionManager;
+
+    private BadgeView badgeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +71,7 @@ public class AccountActivity extends AppCompatActivity {
         sessionManager = new SessionManager(getApplication());
 
         initWeight();
+        badgeView = new BadgeView(mContext, btn_notification);
         initOnClick();
     }
 
@@ -257,4 +270,38 @@ public class AccountActivity extends AppCompatActivity {
         }, 2000);
     }
 
+    private void setupBadge(int reminderLength){
+        if (reminderLength > 0){
+            //Adds badge to the notification imageview on the toolbar
+            badgeView.setTextSize(10);
+            badgeView.setTextColor(Color.parseColor("#ffffff"));
+            badgeView.setBadgeBackgroundColor(Color.parseColor("#ff0000"));
+            badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+            badgeView.setText(String.valueOf(reminderLength));
+            badgeView.setBadgeMargin(5, 0);
+            badgeView.show();
+
+        } else {
+            badgeView.hide();
+
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(RemoteMessage notification){
+        setupBadge(Common.number);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+        setupBadge(Common.number);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 }

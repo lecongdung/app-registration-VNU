@@ -21,6 +21,7 @@ public class Common {
     public static final String SDF = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public static final String output = "dd/MM/yyyy";
     public static final String output2 = "HH:mm:ss dd/MM/yyyy";
+    public static int number = 0;
 
     public static boolean isValidEmail(String email) {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";

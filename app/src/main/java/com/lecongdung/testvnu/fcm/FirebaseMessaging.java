@@ -14,7 +14,10 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.lecongdung.testvnu.R;
+import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.view.HomeActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 import static com.google.firebase.messaging.RemoteMessage.PRIORITY_HIGH;
 
@@ -23,6 +26,8 @@ public class FirebaseMessaging extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+        Common.number = 1;
+        EventBus.getDefault().post(remoteMessage);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             sendOAndAboveNotification(remoteMessage);
         } else {

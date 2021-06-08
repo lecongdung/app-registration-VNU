@@ -15,6 +15,7 @@ import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.adapter.KyThiAdapter;
 import com.lecongdung.testvnu.adapter.MyKyThiAdapter;
 import com.lecongdung.testvnu.adapter.NotificationAdapter;
+import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.model.MyKyThi;
 import com.lecongdung.testvnu.model.ThongBao;
@@ -46,6 +47,8 @@ public class NotificationActivity extends AppCompatActivity {
         initWeight();
         initContent();
         init();
+
+        Common.number = 0;
     }
 
 
