@@ -11,6 +11,7 @@ import com.lecongdung.testvnu.remote.entity.BodyLogin;
 import com.lecongdung.testvnu.remote.entity.BodyRegister;
 import com.lecongdung.testvnu.remote.entity.BodySendOTP;
 import com.lecongdung.testvnu.remote.entity.BodyStudentDelete;
+import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateAvatar;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateDetail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateEmail;
 import com.lecongdung.testvnu.remote.entity.BodyStudentUpdateInfo;
@@ -96,7 +97,13 @@ public interface DataService {
     @PATCH("dangkythi-lephi/{id}")
     Call<Lephi> UpdateLePhi (@Path("id") int id, @Body BodyLePhiUpdate body);
 
+    @GET("student-info/{id}")
+    Call<ResponeStudentUpdateDetail> GetStudentInfo (@Path("id") int id);
+
     @PATCH("student-info/{id}")
     Call<ResponeStudentUpdateDetail> StudentUpdateInfo (@Path("id") int id, @Body BodyStudentUpdateInfo body);
+
+    @PATCH("student-info/{id}")
+    Call<ResponeStudentUpdateDetail> StudentUpdateAvatar (@Path("id") int id, @Body BodyStudentUpdateAvatar body);
 
 }

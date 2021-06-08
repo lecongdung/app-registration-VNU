@@ -59,4 +59,5 @@ public class Common {
     public static String covertFormNumber(int number) {
         return  String.format("%,d", number);
     }
+
 }
