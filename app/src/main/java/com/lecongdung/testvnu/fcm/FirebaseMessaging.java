@@ -26,7 +26,7 @@ public class FirebaseMessaging extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        Common.number = 1;
+        Common.number = Common.number + 1;
         EventBus.getDefault().post(remoteMessage);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             sendOAndAboveNotification(remoteMessage);

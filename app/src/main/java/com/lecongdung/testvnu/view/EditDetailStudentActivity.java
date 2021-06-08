@@ -76,9 +76,9 @@ public class EditDetailStudentActivity extends AppCompatActivity
                                 ResponeStudentUpdateDetail result = response.body();
                                 editDetailsOneFragment.edt_hoten.setText(result.getHoten());
                                 editDetailsOneFragment.edt_phone.setText(result.getSodienthoai());
-                                editDetailsOneFragment.edt_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output));
+                                editDetailsOneFragment.edt_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output3));
 
-                                if(result.equals("0")) {
+                                if(result.getGioitinh().equals("0")) {
                                     editDetailsOneFragment.maleRadioButton.setChecked(true);
                                 }else {
                                     editDetailsOneFragment.femaleRadioButton.setChecked(true);
@@ -91,7 +91,7 @@ public class EditDetailStudentActivity extends AppCompatActivity
                                 editDetailsOneFragment.edt_tinh.setText(dc[3]);
                                 editDetailsTwoFragment.edt_dantoc.setText(result.getDantoc());
                                 editDetailsTwoFragment.edt_cmt.setText(result.getSoCMND());
-                                editDetailsTwoFragment.edt_ngaycap.setText(Common.convertDateToString(result.getNgaycap(),Common.output));
+                                editDetailsTwoFragment.edt_ngaycap.setText(Common.convertDateToString(result.getNgaycap(),Common.output3));
                                 editDetailsTwoFragment.edt_noicap.setText(result.getNoicap());
                                 editDetailsTwoFragment.edt_khuvuc.setText(result.getKhuvuc());
                             } else {

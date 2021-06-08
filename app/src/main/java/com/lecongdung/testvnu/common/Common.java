@@ -20,6 +20,7 @@ public class Common {
 
     public static final String SDF = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public static final String output = "dd/MM/yyyy";
+    public static final String output3 = "yyyy-MM-dd";
     public static final String output2 = "HH:mm:ss dd/MM/yyyy";
     public static int number = 0;
 

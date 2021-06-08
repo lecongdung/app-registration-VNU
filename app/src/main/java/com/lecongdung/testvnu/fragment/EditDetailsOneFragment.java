@@ -67,8 +67,8 @@ public class EditDetailsOneFragment extends Fragment {
         edt_thanhpho = (EditText) view.findViewById(R.id.edt_thanhpho);
         edt_tinh = (EditText) view.findViewById(R.id.edt_tinh);
         mGenderGroup = (RadioGroup) view.findViewById(R.id.genderToggle);
-        maleRadioButton = (RadioButton) view.findViewById(R.id.femaleButton);
-        femaleRadioButton = (RadioButton) view.findViewById(R.id.maleButton);
+        maleRadioButton = (RadioButton) view.findViewById(R.id.maleButton);
+        femaleRadioButton = (RadioButton) view.findViewById(R.id.femaleButton);
 
         btn_back = (ImageView) view.findViewById(R.id.btn_back);
         if(flagPreActivity.equals("SigninActivity")) {
