@@ -19,6 +19,7 @@ public class Kythi implements Serializable {
 
 
     public Kythi() {
+        Trangthai = -1;
     }
 
     public Kythi(int id, String maKythi, String tenKythi, String mota, String tungay, String toingay, int socathi, String handangky, int trangthai, int taocathi, String anhkythi, String createdAt, String updatedAt) {
@@ -50,7 +51,7 @@ public class Kythi implements Serializable {
     }
 
     public void setMaKythi(String maKythi) {
-        MaKythi = maKythi;
+        if (maKythi != null) MaKythi = maKythi;
     }
 
     public String getTenKythi() {
@@ -58,7 +59,7 @@ public class Kythi implements Serializable {
     }
 
     public void setTenKythi(String tenKythi) {
-        TenKythi = tenKythi;
+        if (tenKythi != null) TenKythi = tenKythi;
     }
 
     public String getMota() {
@@ -66,7 +67,7 @@ public class Kythi implements Serializable {
     }
 
     public void setMota(String mota) {
-        Mota = mota;
+        if (mota != null) Mota = mota;
     }
 
     public String getTungay() {
@@ -74,7 +75,7 @@ public class Kythi implements Serializable {
     }
 
     public void setTungay(String tungay) {
-        Tungay = tungay;
+        if (tungay != null) Tungay = tungay;
     }
 
     public String getToingay() {
@@ -82,7 +83,7 @@ public class Kythi implements Serializable {
     }
 
     public void setToingay(String toingay) {
-        Toingay = toingay;
+       if(toingay != null) Toingay = toingay;
     }
 
     public int getSocathi() {
@@ -98,7 +99,7 @@ public class Kythi implements Serializable {
     }
 
     public void setHandangky(String handangky) {
-        Handangky = handangky;
+        if(handangky != null)Handangky = handangky;
     }
 
     public int getTrangthai() {
@@ -122,7 +123,7 @@ public class Kythi implements Serializable {
     }
 
     public void setAnhkythi(String anhkythi) {
-        this.anhkythi = anhkythi;
+        if(anhkythi != null)this.anhkythi = anhkythi;
     }
 
     public String getCreatedAt() {

@@ -29,7 +29,9 @@ public class Monthi {
     }
 
     public void setId(int id) {
-        Id = id;
+        if(id != 0){
+            Id = id;
+        }
     }
 
     public String getMakythi() {
@@ -37,7 +39,9 @@ public class Monthi {
     }
 
     public void setMakythi(String makythi) {
-        Makythi = makythi;
+        if(makythi != null) {
+            Makythi = makythi;
+        }
     }
 
     public String getMadiemthi() {
@@ -45,7 +49,9 @@ public class Monthi {
     }
 
     public void setMadiemthi(String madiemthi) {
-        Madiemthi = madiemthi;
+        if(madiemthi != null) {
+            Madiemthi = madiemthi;
+        }
     }
 
     public String getMamonthi() {
@@ -53,7 +59,9 @@ public class Monthi {
     }
 
     public void setMamonthi(String mamonthi) {
-        Mamonthi = mamonthi;
+        if(mamonthi != null) {
+            Mamonthi = mamonthi;
+        }
     }
 
     public int getCathi() {
@@ -61,7 +69,6 @@ public class Monthi {
     }
 
     public void setCathi(int cathi) {
-        Cathi = cathi;
     }
 
     public int getChecked() {
@@ -77,7 +84,9 @@ public class Monthi {
     }
 
     public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+        if(createdAt != null) {
+            this.createdAt = createdAt;
+        }
     }
 
     public String getUpdatedAt() {
@@ -85,6 +94,8 @@ public class Monthi {
     }
 
     public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+        if(updatedAt != null) {
+            this.updatedAt = updatedAt;
+        }
     }
 }

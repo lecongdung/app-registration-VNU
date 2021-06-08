@@ -91,7 +91,7 @@ public class KythiActivity extends AppCompatActivity
                 finish();
                 break;
             case R.id.btn_dangky:
-                mService.GetDangKyLePhi(Common.mStudent.getId()-1)
+                mService.GetDangKyLePhi(Common.mStudent.getId())
                         .enqueue(new Callback<Lephi>() {
                             @Override
                             public void onResponse(Call<Lephi> call, Response<Lephi> response) {

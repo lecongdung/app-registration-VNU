@@ -22,6 +22,7 @@ public class Common {
     public static final String output = "dd/MM/yyyy";
     public static final String output3 = "yyyy-MM-dd";
     public static final String output2 = "HH:mm:ss dd/MM/yyyy";
+    public static final String output4 = "HH:mm:ss";
     public static int number = 0;
 
     public static boolean isValidEmail(String email) {
@@ -39,5 +40,11 @@ public class Common {
             e.printStackTrace();
         }
         return raw;
+    }
+
+    public static String convertTrangThai(int status) {
+        if(status == 0) return "Mở đăng ký";
+        else if(status == 1) return "Hết hạn đăng ký";
+        else return "Đã thi";
     }
 }

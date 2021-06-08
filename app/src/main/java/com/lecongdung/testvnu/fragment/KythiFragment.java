@@ -71,6 +71,7 @@ public class KythiFragment extends Fragment {
         btn_monthi_details = (TextView) mView.findViewById(R.id.btn_monthi_details);
         btn_thoat = (ImageView) mView.findViewById(R.id.btn_thoat);
         btn_dangky = (Button) mView.findViewById(R.id.btn_dangky);
+
     }
 
     private void initContent() throws ParseException {
@@ -78,7 +79,7 @@ public class KythiFragment extends Fragment {
         tv_mota.setText(mKythi.getMota());
         tv_tenkythi.setText(mKythi.getTenKythi());
         tv_socathi.setText(mKythi.getSocathi()+"");
-        tv_trangthai.setText(mKythi.getTrangthai()+"");
+        tv_trangthai.setText(Common.convertTrangThai(mKythi.getTrangthai()));
 
         String tungngay = ""; String toingay = ""; String handangky = "";
 
@@ -96,6 +97,9 @@ public class KythiFragment extends Fragment {
 
         tv_handk.setText(handangky);
 
+        if(mKythi.getTrangthai() != 0) {
+            btn_dangky.setVisibility(View.GONE);
+        }
     }
 
     private void initOnClick() {

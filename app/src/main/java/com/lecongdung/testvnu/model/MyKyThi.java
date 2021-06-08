@@ -10,6 +10,7 @@ public class MyKyThi implements Serializable {
     private String Tungay;
     private String Toingay;
     private int Socathi;
+    private int Trangthai;
     private String Handangky;
     private String Lephidangky;
     private String Lephidanop;
@@ -36,6 +37,14 @@ public class MyKyThi implements Serializable {
         Ngaythu = ngaythu;
         this.status = status;
         Ngaydangky = ngaydangky;
+    }
+
+    public int getTrangthai() {
+        return Trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        Trangthai = trangthai;
     }
 
     public int getId() {

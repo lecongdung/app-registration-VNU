@@ -36,11 +36,18 @@ public class MonThiAdapter extends RecyclerView.Adapter<MonThiAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         DetailsMonThi monthi = detailsMonThiList.get(position);
         holder.tv_monthi_id.setText(monthi.getMaMonthi());
-
-        String ngaythi = Common.convertDateToString(monthi.getNgaythi(),Common.output);
+        String ngaythi = "";
+        if(monthi.getNgaythi() != null) {
+             ngaythi = Common.convertDateToString(monthi.getNgaythi(),Common.output);
+        }
         holder.tv_ngaythi.setText(ngaythi);
         holder.tv_cathi.setText(monthi.getCathi()+"");
-        holder.tv_giothi.setText(monthi.getGiothi());
+
+        String giothi = "";
+        if(monthi.getGiothi() != null) {
+            giothi = Common.convertDateToString(monthi.getNgaythi(),Common.output4);
+        }
+        holder.tv_giothi.setText(giothi);
         holder.tv_diemthi.setText(monthi.getDiemthi());
     }
 

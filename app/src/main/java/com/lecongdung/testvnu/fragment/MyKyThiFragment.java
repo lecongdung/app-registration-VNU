@@ -82,7 +82,7 @@ public class MyKyThiFragment extends Fragment {
         tv_mota.setText(mMyKyThi.getMota());
         tv_tenkythi.setText(mMyKyThi.getTenKythi());
         tv_socathi.setText(mMyKyThi.getSocathi()+"");
-        tv_trangthai.setText(mMyKyThi.getStatus()+"");
+        tv_trangthai.setText(Common.convertTrangThai(mMyKyThi.getTrangthai()));
 
         String tungngay = "", toingay = "",handangky = "", ngaythu = "", ngaydangky="";
 
@@ -109,6 +109,10 @@ public class MyKyThiFragment extends Fragment {
         tv_lephi_danop.setText(mMyKyThi.getLephidanop() + " VNĐ");
         tv_lephi_ngaynop.setText(ngaythu);
         tv_ngaydangky.setText(ngaydangky);
+
+        if(mMyKyThi.getTrangthai() == 2) {
+            btn_huydangky.setVisibility(View.GONE);
+        }
     }
 
     private void initOnClick() {

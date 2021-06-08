@@ -144,6 +144,7 @@ public class MyTestActivity extends AppCompatActivity {
         myKyThi.setTungay(kythi.getTungay());
         myKyThi.setToingay(kythi.getToingay());
         myKyThi.setHandangky(kythi.getHandangky());
+        myKyThi.setTrangthai(kythi.getTrangthai());
         myKyThi.setLephidangky(lephi.getLephidangky());
         myKyThi.setLephidanop(lephi.getLephidanop());
         myKyThi.setNguoithu(lephi.getNguoithu());
