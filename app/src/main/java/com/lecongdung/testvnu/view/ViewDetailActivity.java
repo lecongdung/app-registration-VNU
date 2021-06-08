@@ -145,11 +145,13 @@ public class ViewDetailActivity extends AppCompatActivity {
         tv_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output));
 
         String a[] = result.getNoisinh().split(", ");
-        tv_noisinh.setText(a[3]);
+        if(a.length >= 4) {
+            tv_noisinh.setText(a[3]);
+        }
 
         if(result.getGioitinh().equals("0")) {
             tv_gioitinh.setText("Nam");
-        }else {
+        }else if(result.getGioitinh().equals("1")) {
             tv_gioitinh.setText("Nữ");
         }
         tv_diachi.setText(result.getNoisinh());

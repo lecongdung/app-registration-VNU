@@ -73,22 +73,26 @@ public class EditDetailStudentActivity extends AppCompatActivity
                         @Override
                         public void onResponse(Call<ResponeStudentUpdateDetail> call, Response<ResponeStudentUpdateDetail> response) {
                             if(response.isSuccessful()) {
-                                ResponeStudentUpdateDetail result = response.body();
+                                ResponeStudentUpdateDetail result = new ResponeStudentUpdateDetail();
+                                result.responeContent( response.body());
+
                                 editDetailsOneFragment.edt_hoten.setText(result.getHoten());
                                 editDetailsOneFragment.edt_phone.setText(result.getSodienthoai());
                                 editDetailsOneFragment.edt_ngaysinh.setText(Common.convertDateToString(result.getNgaysinh(),Common.output3));
 
                                 if(result.getGioitinh().equals("0")) {
                                     editDetailsOneFragment.maleRadioButton.setChecked(true);
-                                }else {
+                                }else if(result.getGioitinh().equals("1")){
                                     editDetailsOneFragment.femaleRadioButton.setChecked(true);
                                 }
                                 String diachi = result.getNoisinh();
                                 String [] dc = diachi.split(", ");
-                                editDetailsOneFragment.edt_duong.setText(dc[0]);
-                                editDetailsOneFragment.edt_phuong.setText(dc[1]);
-                                editDetailsOneFragment.edt_thanhpho.setText(dc[2]);
-                                editDetailsOneFragment.edt_tinh.setText(dc[3]);
+                                if(dc.length >= 4) {
+                                    editDetailsOneFragment.edt_duong.setText(dc[0]);
+                                    editDetailsOneFragment.edt_phuong.setText(dc[1]);
+                                    editDetailsOneFragment.edt_thanhpho.setText(dc[2]);
+                                    editDetailsOneFragment.edt_tinh.setText(dc[3]);
+                                }
                                 editDetailsTwoFragment.edt_dantoc.setText(result.getDantoc());
                                 editDetailsTwoFragment.edt_cmt.setText(result.getSoCMND());
                                 editDetailsTwoFragment.edt_ngaycap.setText(Common.convertDateToString(result.getNgaycap(),Common.output3));
