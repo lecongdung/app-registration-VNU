@@ -3,23 +3,30 @@ package com.lecongdung.testvnu.model;
 public class Monthi {
     private int Id;
     private String Makythi;
-    private String Madiemthi;
-    private String Mamonthi;
-    private int Cathi;
-    private int checked;
+    private String MaMonthi;
+    private String Giothi;
+    private String Ngaythi;
+    private String Diadiemthi;
+    private int Lephithi;
+    private int Thoigianlambai;
+    private int Luachon;
     private String createdAt;
     private String updatedAt;
 
     public Monthi() {
     }
 
-    public Monthi(int id, String makythi, String madiemthi, String mamonthi, int cathi, int checked, String createdAt, String updatedAt) {
+
+    public Monthi(int id, String makythi, String maMonthi, String giothi, String ngaythi, String diadiemthi, int lephithi, int thoigianlambai, int luachon, String createdAt, String updatedAt) {
         Id = id;
         Makythi = makythi;
-        Madiemthi = madiemthi;
-        Mamonthi = mamonthi;
-        Cathi = cathi;
-        this.checked = checked;
+        MaMonthi = maMonthi;
+        Giothi = giothi;
+        Ngaythi = ngaythi;
+        Diadiemthi = diadiemthi;
+        Lephithi = lephithi;
+        Thoigianlambai = thoigianlambai;
+        Luachon = luachon;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -29,7 +36,7 @@ public class Monthi {
     }
 
     public void setId(int id) {
-        if(id != 0){
+        if (id != 0) {
             Id = id;
         }
     }
@@ -39,44 +46,9 @@ public class Monthi {
     }
 
     public void setMakythi(String makythi) {
-        if(makythi != null) {
+        if (makythi != null) {
             Makythi = makythi;
         }
-    }
-
-    public String getMadiemthi() {
-        return Madiemthi;
-    }
-
-    public void setMadiemthi(String madiemthi) {
-        if(madiemthi != null) {
-            Madiemthi = madiemthi;
-        }
-    }
-
-    public String getMamonthi() {
-        return Mamonthi;
-    }
-
-    public void setMamonthi(String mamonthi) {
-        if(mamonthi != null) {
-            Mamonthi = mamonthi;
-        }
-    }
-
-    public int getCathi() {
-        return Cathi;
-    }
-
-    public void setCathi(int cathi) {
-    }
-
-    public int getChecked() {
-        return checked;
-    }
-
-    public void setChecked(int checked) {
-        this.checked = checked;
     }
 
     public String getCreatedAt() {
@@ -84,7 +56,7 @@ public class Monthi {
     }
 
     public void setCreatedAt(String createdAt) {
-        if(createdAt != null) {
+        if (createdAt != null) {
             this.createdAt = createdAt;
         }
     }
@@ -94,8 +66,64 @@ public class Monthi {
     }
 
     public void setUpdatedAt(String updatedAt) {
-        if(updatedAt != null) {
+        if (updatedAt != null) {
             this.updatedAt = updatedAt;
         }
+    }
+
+    public void setMaMonthi(String maMonthi) {
+        if(maMonthi != null)MaMonthi = maMonthi;
+    }
+
+    public void setGiothi(String giothi) {
+        if(giothi != null)Giothi = giothi;
+    }
+
+    public void setNgaythi(String ngaythi) {
+        if(ngaythi != null)Ngaythi = ngaythi;
+    }
+
+    public void setDiadiemthi(String diadiemthi) {
+        if(diadiemthi != null) Diadiemthi = diadiemthi;
+    }
+
+    public void setLephithi(int lephithi) {
+         Lephithi = lephithi;
+    }
+
+    public void setThoigianlambai(int thoigianlambai) {
+        Thoigianlambai = thoigianlambai;
+    }
+
+    public void setLuachon(int luachon) {
+        Luachon = luachon;
+    }
+
+    public String getMaMonthi() {
+        return MaMonthi;
+    }
+
+    public String getGiothi() {
+        return Giothi;
+    }
+
+    public String getNgaythi() {
+        return Ngaythi;
+    }
+
+    public String getDiadiemthi() {
+        return Diadiemthi;
+    }
+
+    public int getLephithi() {
+        return Lephithi;
+    }
+
+    public int getThoigianlambai() {
+        return Thoigianlambai;
+    }
+
+    public int getLuachon() {
+        return Luachon;
     }
 }

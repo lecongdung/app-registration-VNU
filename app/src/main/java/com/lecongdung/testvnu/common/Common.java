@@ -31,13 +31,15 @@ public class Common {
     }
 
     public static String convertDateToString(String raw,String form) {
-        SimpleDateFormat sdf = new SimpleDateFormat(Common.SDF);
-        SimpleDateFormat output = new SimpleDateFormat(form);
-        try {
-            Date d = sdf.parse(raw);
-            raw = output.format(d);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if(raw != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat(Common.SDF);
+            SimpleDateFormat output = new SimpleDateFormat(form);
+            try {
+                Date d = sdf.parse(raw);
+                raw = output.format(d);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         return raw;
     }
@@ -46,5 +48,15 @@ public class Common {
         if(status == 0) return "Mở đăng ký";
         else if(status == 1) return "Hết hạn đăng ký";
         else return "Đã thi";
+    }
+
+    public static String convertHinhThuc(int status) {
+        if(status == 1) return "Trắc nghiệm";
+        else if(status == 2) return "Vấn đáp";
+        else return "Tự luận";
+    }
+
+    public static String covertFormNumber(int number) {
+        return  String.format("%,d", number);
     }
 }

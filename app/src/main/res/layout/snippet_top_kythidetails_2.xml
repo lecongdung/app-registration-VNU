@@ -58,15 +58,15 @@
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_kythi"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="16dp"
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="16dp"
                 android:background="@drawable/shapebgsearch"
+                app:defaultQueryHint="Tìm kiếm môn thi"
                 app:iconifiedByDefault="false"
                 app:queryBackground="@null"
-                app:defaultQueryHint="Tìm kiếm kỳ thi"
-                app:queryHint="Tìm kiếm kỳ thi"/>
+                app:queryHint="Tìm kiếm kỳ thi" />
 
         </LinearLayout>
     </LinearLayout>

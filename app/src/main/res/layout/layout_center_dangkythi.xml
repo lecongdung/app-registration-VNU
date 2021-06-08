@@ -282,6 +282,7 @@
             android:layout_marginRight="8dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tv_lephi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -329,7 +330,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:text="(BIDV - 21510002312760 - Vu DUC MINH)"/>
+                    android:text="(BIDV - 21510002312760 - VU DUC MINH)"/>
 
             </RadioGroup>
 

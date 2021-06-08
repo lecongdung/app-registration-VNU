@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,7 +52,7 @@ public class MonThiFragment extends Fragment {
 
     private int flag;
     private String mMakythi;
-    private List<DetailsMonThi> detailsMonThiList = new ArrayList<>();
+    private List<Monthi> detailsMonThiList = new ArrayList<>();
 
     public MonThiFragment(int flag, String mMakythi) {
         this.flag = flag;
@@ -67,7 +68,6 @@ public class MonThiFragment extends Fragment {
         initWeight(mView);
 
         initContent();
-        initList(detailsMonThiList);
         initOnClick();
 
 
@@ -85,78 +85,33 @@ public class MonThiFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Monthi>> call, Response<List<Monthi>> response) {
                         if(response.isSuccessful()) {
-                            List<Monthi> monthiList = response.body();
-                            for (Monthi monthi : monthiList) {
+                            for (Monthi monthi : response.body()) {
                                 if(monthi.getMakythi().equals(mMakythi)){
-                                    DetailsMonThi detailsMonThi = new DetailsMonThi();
-                                    detailsMonThi.setMaMonthi(monthi.getMamonthi());
-                                    detailsMonThi.setCathi(monthi.getCathi());
-                                    detailsMonThi.setDiemthi(monthi.getMadiemthi());
-
-                                    getTimeAsyn(detailsMonThi);
+                                    detailsMonThiList.add(monthi);
                                 }
                             }
+                            initList(detailsMonThiList);
+                        }
+                        else {
+                            Toast.makeText(getContext(),"Lấy thông tin môn thi thất bại",Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<List<Monthi>> call, Throwable t) {
-
+                        Toast.makeText(getContext(),"Lỗi lấy thông tin môn thi",Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    private void initList(List<DetailsMonThi> listKythi) {
+    private void initList(List<Monthi> listKythi) {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         myAdapter = new MonThiAdapter(getContext(),listKythi);
         mRecyclerView.setAdapter(myAdapter);
     }
 
-    private void getTimeAsyn(DetailsMonThi detailsMonThi) {
-        mService.GetAllCaThi()
-                .enqueue(new Callback<List<Cathi>>() {
-                    @Override
-                    public void onResponse(Call<List<Cathi>> call, Response<List<Cathi>> response) {
-                        if(response.isSuccessful()) {
-                            List<Cathi> cathiList = response.body();
-                            for(Cathi cathi : cathiList) {
-                                if (cathi.getMakythi().equals(mMakythi)
-                                        && cathi.getCathi() == detailsMonThi.getCathi()) {
-                                    detailsMonThi.setNgaythi(cathi.getNgaythi());
-                                    detailsMonThi.setGiothi(cathi.getGiothi());
-                                }
-                            }
-                        }
-                        detailsMonThiList.add(detailsMonThi);
-                        myAdapter.notifyDataSetChanged();
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<Cathi>> call, Throwable t) {
-
-                    }
-                });
-    }
-    private void getTimeSync(DetailsMonThi detailsMonThi) {
-        try {
-            Response<List<Cathi>> response = mService.GetAllCaThi().execute();
-            if(response.isSuccessful()) {
-                List<Cathi> cathiList = response.body();
-                for(Cathi cathi : cathiList) {
-                    if (cathi.getMakythi().equals(mMakythi)
-                            && cathi.getCathi() == detailsMonThi.getCathi()) {
-                        detailsMonThi.setNgaythi(cathi.getNgaythi());
-                        detailsMonThi.setGiothi(cathi.getGiothi());
-                    }
-                }
-            }
-            detailsMonThiList.add(detailsMonThi);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     private void initOnClick() {
         btn_backarrow.setOnClickListener(v -> {
@@ -181,12 +136,12 @@ public class MonThiFragment extends Fragment {
     }
 
     private void findKythi(String query) {
-        ArrayList<DetailsMonThi> listResult = new ArrayList();
+        ArrayList<Monthi> listResult = new ArrayList();
         if(query.isEmpty()) {
             listResult.addAll(detailsMonThiList);
         }
         else {
-            for (DetailsMonThi monThi : detailsMonThiList) {
+            for (Monthi monThi : detailsMonThiList) {
                 if(monThi.getMaMonthi() != null && !monThi.getMaMonthi().isEmpty())  {
                     if(monThi.getMaMonthi().contains(query)) {
                         listResult.add(monThi);

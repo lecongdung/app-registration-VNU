@@ -54,31 +54,10 @@
 
                 <TextView
                     android:id="@+id/tv_ngaythi"
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="22/2/2021"
                     android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ca thi: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_cathi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GĐ3"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,10 +68,16 @@
 
                 <TextView
                     android:id="@+id/tv_giothi"
-                    android:layout_width="163dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="từ 8 giờ đến 10 giờ"
                     android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,9 +88,65 @@
 
                 <TextView
                     android:id="@+id/tv_diemthi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trung tâm Khảo thí Đại học Quốc gia Hà Nội"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GĐ3"
+                    android:text="Thời gian làm bài: "
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_thoigianlambai"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:text="120p"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hình thức: "
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_hinhthuc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trắc nghiệm"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lệ phí: "
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_lephi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="120.000 VND"
                     android:textSize="16sp" />
 
             </LinearLayout>

@@ -19,6 +19,7 @@ import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.dialog.SuccessDialog;
 import com.lecongdung.testvnu.model.Kythi;
 import com.lecongdung.testvnu.model.Lephi;
+import com.lecongdung.testvnu.model.Monthi;
 import com.lecongdung.testvnu.model.MyKyThi;
 import com.lecongdung.testvnu.remote.DataClient;
 import com.lecongdung.testvnu.remote.DataService;
@@ -27,6 +28,7 @@ import com.lecongdung.testvnu.remote.entity.ResponeStudentUpdateDetail;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +37,7 @@ import retrofit2.Response;
 public class DangKyThiActivity extends AppCompatActivity {
 
     private TextView tv_tendangnhap, tv_email, tv_hoten, tv_phone, tv_ngaysinh, tv_gioitinh, tv_diachi, tv_dantoc,
-            tv_cmt, tv_ngaycap, tv_noicap, tv_khuvuc;
+            tv_cmt, tv_ngaycap, tv_noicap, tv_khuvuc,tv_lephi;
     private TextView btn_edit_details, btn_thoat;
     private Button btn_ghidanh;
     private RadioGroup radioGroup;
@@ -69,6 +71,7 @@ public class DangKyThiActivity extends AppCompatActivity {
         tv_ngaycap = (TextView) findViewById(R.id.tv_ngaycap);
         tv_noicap = (TextView) findViewById(R.id.tv_noicap);
         tv_khuvuc = (TextView) findViewById(R.id.tv_khuvuc);
+        tv_lephi = (TextView) findViewById(R.id.tv_lephi);
 
         btn_edit_details = (TextView) findViewById(R.id.btn_edit_detail);
         btn_ghidanh = (Button) findViewById(R.id.btn_ghidanh);
@@ -110,6 +113,30 @@ public class DangKyThiActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ResponeStudentUpdateDetail> call, Throwable t) {
 
+                    }
+                });
+
+        mService.GetAllMonThi()
+                .enqueue(new Callback<List<Monthi>>() {
+                    @Override
+                    public void onResponse(Call<List<Monthi>> call, Response<List<Monthi>> response) {
+                        if(response.isSuccessful()) {
+                            int sum = 0;
+                            for (Monthi monthi : response.body()) {
+                                if(monthi.getMakythi().equals(mKythi.getMaKythi())){
+                                    sum += monthi.getLephithi();
+                                }
+                            }
+                            tv_lephi.setText("Lệ phí: "+Common.covertFormNumber(sum)+ " VND");
+                        }
+                        else {
+                            Toast.makeText(DangKyThiActivity.this,"Tính lệ phí thất bại",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Monthi>> call, Throwable t) {
+                        Toast.makeText(DangKyThiActivity.this,"Lỗi lấy thông tin môn thi",Toast.LENGTH_SHORT).show();
                     }
                 });
     }

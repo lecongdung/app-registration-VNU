@@ -82,11 +82,9 @@ public interface DataService {
     @GET("kythi")
     Call<List<Kythi>> GetAllKyThi ();
 
-    @GET("mon-cathi")
+    @GET("kythi-monthi")
     Call<List<Monthi>> GetAllMonThi ();
 
-    @GET("kythi-cathi")
-    Call<List<Cathi>> GetAllCaThi ();
 
     @GET("dangkythi-lephi/{id}")
     Call<Lephi> GetDangKyLePhi (@Path("id")int id);
