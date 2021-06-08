@@ -147,7 +147,7 @@ public class ViewDetailActivity extends AppCompatActivity {
         String a[] = result.getNoisinh().split(", ");
         tv_noisinh.setText(a[3]);
 
-        if(result.equals("0")) {
+        if(result.getGioitinh().equals("0")) {
             tv_gioitinh.setText("Nam");
         }else {
             tv_gioitinh.setText("Nữ");
