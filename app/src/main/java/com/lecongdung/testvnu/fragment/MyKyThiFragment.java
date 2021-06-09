@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,11 +19,20 @@ import androidx.fragment.app.Fragment;
 import com.lecongdung.testvnu.R;
 import com.lecongdung.testvnu.common.Common;
 import com.lecongdung.testvnu.model.Kythi;
+import com.lecongdung.testvnu.model.Monthi;
 import com.lecongdung.testvnu.model.MyKyThi;
+import com.lecongdung.testvnu.remote.DataClient;
+import com.lecongdung.testvnu.remote.DataService;
+import com.lecongdung.testvnu.view.DangKyThiActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MyKyThiFragment extends Fragment {
     public interface OnButtonClickListener {
@@ -34,6 +44,7 @@ public class MyKyThiFragment extends Fragment {
     private TextView btn_huydangky;
 
     private OnButtonClickListener mOnButtonClickListener;
+    private DataService mService;
 
     private MyKyThi mMyKyThi;
 
@@ -41,6 +52,7 @@ public class MyKyThiFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View mView = inflater.inflate(R.layout.fragment_mykythi_details, container, false);
+        mService = DataClient.getDataClient();
         getData();
         initWeight(mView);
         try {
@@ -105,7 +117,6 @@ public class MyKyThiFragment extends Fragment {
         if(!tungngay.isEmpty()&&!toingay.isEmpty()) tv_ngaythi.setText(tungngay + "-" + toingay);
 
         tv_handk.setText(handangky);
-        tv_lephi.setText(mMyKyThi.getLephidangky() + " VNĐ");
         tv_lephi_danop.setText(mMyKyThi.getLephidanop() + " VNĐ");
         tv_lephi_ngaynop.setText(ngaythu);
         tv_ngaydangky.setText(ngaydangky);
@@ -113,6 +124,29 @@ public class MyKyThiFragment extends Fragment {
         if(mMyKyThi.getTrangthai() == 2) {
             btn_huydangky.setVisibility(View.GONE);
         }
+
+        mService.GetAllMonThi()
+                .enqueue(new Callback<List<Monthi>>() {
+                    @Override
+                    public void onResponse(Call<List<Monthi>> call, Response<List<Monthi>> response) {
+                        if(response.isSuccessful()) {
+                            int sum = 0;
+                            for (Monthi monthi : response.body()) {
+                                if(monthi.getMakythi().equals(mMyKyThi.getMaKythi())){
+                                    sum += monthi.getLephithi();
+                                }
+                            }
+                            tv_lephi.setText(Common.covertFormNumber(sum)+ " VND");
+                        }
+                        else {
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Monthi>> call, Throwable t) {
+                    }
+                });
+
     }
 
     private void initOnClick() {
