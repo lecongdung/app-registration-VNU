@@ -159,7 +159,7 @@ public class HomeActivity extends AppCompatActivity {
         else {
             for (Kythi kythi : mListKythi) {
                 if(kythi.getMaKythi() != null && !kythi.getMaKythi().isEmpty())  {
-                    if(kythi.getMaKythi().contains(query)) {
+                    if(kythi.getMaKythi().toLowerCase().contains(query.toLowerCase())) {
                         listResult.add(kythi);
                     }
                 }

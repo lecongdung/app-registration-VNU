@@ -143,7 +143,7 @@ public class MonThiFragment extends Fragment {
         else {
             for (Monthi monThi : detailsMonThiList) {
                 if(monThi.getMaMonthi() != null && !monThi.getMaMonthi().isEmpty())  {
-                    if(monThi.getMaMonthi().contains(query)) {
+                    if(monThi.getMaMonthi().toLowerCase().contains(query.toLowerCase())) {
                         listResult.add(monThi);
                     }
                 }
